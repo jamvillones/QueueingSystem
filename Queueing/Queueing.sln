@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1267
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueReceipt", "Queueing\QueReceipt.csproj", "{C430D5F3-1F35-4419-B95F-1C4F79DB353D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueCounter", "QueCounter\QueCounter.csproj", "{78EABD05-C5DE-4EC8-8A88-9C1CA79AB3B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueServer", "QueServer\QueServer.csproj", "{43CB8CAA-87B3-470D-B23C-B92CD0A316E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C430D5F3-1F35-4419-B95F-1C4F79DB353D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C430D5F3-1F35-4419-B95F-1C4F79DB353D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C430D5F3-1F35-4419-B95F-1C4F79DB353D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C430D5F3-1F35-4419-B95F-1C4F79DB353D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78EABD05-C5DE-4EC8-8A88-9C1CA79AB3B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78EABD05-C5DE-4EC8-8A88-9C1CA79AB3B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78EABD05-C5DE-4EC8-8A88-9C1CA79AB3B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78EABD05-C5DE-4EC8-8A88-9C1CA79AB3B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43CB8CAA-87B3-470D-B23C-B92CD0A316E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43CB8CAA-87B3-470D-B23C-B92CD0A316E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43CB8CAA-87B3-470D-B23C-B92CD0A316E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43CB8CAA-87B3-470D-B23C-B92CD0A316E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B918D14-193B-48A8-8F8B-EABFF7CC851D}
+	EndGlobalSection
+EndGlobal

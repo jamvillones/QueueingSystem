@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QueeuingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Counter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="CounterNumber" Type="int" Nullable="false" />
+          <Property Name="CurrentNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prefix" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Details" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Que">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="Pending" Type="bit" Nullable="false" />
+          <Property Name="Priority" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Counters_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="Counter" Type="Self.Counter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Counter">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Counters_Que">
+          <End Role="Que" Type="Self.Que" Multiplicity="0..1" />
+          <End Role="Counter" Type="Self.Counter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Que">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Counter">
+              <PropertyRef Name="CurrentNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Que_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Que" Type="Self.Que" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Que">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QueeuingModelStoreContainer">
+          <EntitySet Name="Counter" EntityType="Self.Counter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Que" EntityType="Self.Que" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Counters_Item" Association="Self.FK_Counters_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Counter" EntitySet="Counter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Counters_Que" Association="Self.FK_Counters_Que">
+            <End Role="Que" EntitySet="Que" />
+            <End Role="Counter" EntitySet="Counter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Que_Item" Association="Self.FK_Que_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Que" EntitySet="Que" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QueeuingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QueeuingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Items" EntityType="QueeuingModel.Item" />
+          <EntitySet Name="Ques" EntityType="QueeuingModel.Que" />
+          <AssociationSet Name="FK_Que_Item" Association="QueeuingModel.FK_Que_Item">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="Que" EntitySet="Ques" />
+          </AssociationSet>
+          <EntitySet Name="Counters" EntityType="QueeuingModel.Counter" />
+          <AssociationSet Name="FK_Counters_Item" Association="QueeuingModel.FK_Counters_Item">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="Counter" EntitySet="Counters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Counters_Que" Association="QueeuingModel.FK_Counters_Que">
+            <End Role="Que" EntitySet="Ques" />
+            <End Role="Counter" EntitySet="Counters" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prefix" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ques" Relationship="QueeuingModel.FK_Que_Item" FromRole="Item" ToRole="Que" />
+          <NavigationProperty Name="Counters" Relationship="QueeuingModel.FK_Counters_Item" FromRole="Item" ToRole="Counter" />
+        </EntityType>
+        <EntityType Name="Que">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="Pending" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="QueeuingModel.FK_Que_Item" FromRole="Que" ToRole="Item" />
+          <Property Name="Priority" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Counters" Relationship="QueeuingModel.FK_Counters_Que" FromRole="Que" ToRole="Counter" />
+        </EntityType>
+        <Association Name="FK_Que_Item">
+          <End Type="QueeuingModel.Item" Role="Item" Multiplicity="1" />
+          <End Type="QueeuingModel.Que" Role="Que" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Que">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Counter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="CounterNumber" Type="Int32" Nullable="false" />
+          <Property Name="CurrentNumber" Type="Int32" />
+          <NavigationProperty Name="Item" Relationship="QueeuingModel.FK_Counters_Item" FromRole="Counter" ToRole="Item" />
+          <NavigationProperty Name="Que" Relationship="QueeuingModel.FK_Counters_Que" FromRole="Counter" ToRole="Que" />
+        </EntityType>
+        <Association Name="FK_Counters_Item">
+          <End Type="QueeuingModel.Item" Role="Item" Multiplicity="1" />
+          <End Type="QueeuingModel.Counter" Role="Counter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Counter">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Counters_Que">
+          <End Type="QueeuingModel.Que" Role="Que" Multiplicity="0..1" />
+          <End Type="QueeuingModel.Counter" Role="Counter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Que">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Counter">
+              <PropertyRef Name="CurrentNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QueeuingModelStoreContainer" CdmEntityContainer="QueeuingEntities">
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="QueeuingModel.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ques">
+            <EntityTypeMapping TypeName="QueeuingModel.Que">
+              <MappingFragment StoreEntitySet="Que">
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Pending" ColumnName="Pending" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Counters">
+            <EntityTypeMapping TypeName="QueeuingModel.Counter">
+              <MappingFragment StoreEntitySet="Counter">
+                <ScalarProperty Name="CurrentNumber" ColumnName="CurrentNumber" />
+                <ScalarProperty Name="CounterNumber" ColumnName="CounterNumber" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
