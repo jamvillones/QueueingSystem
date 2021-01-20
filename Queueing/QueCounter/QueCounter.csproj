@@ -94,6 +94,12 @@
     <Compile Include="Counter.cs">
       <DependentUpon>QueModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DefaultServerAddressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DefaultServerAddressForm.Designer.cs">
+      <DependentUpon>DefaultServerAddressForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Item.cs">
       <DependentUpon>QueModel.tt</DependentUpon>
     </Compile>
@@ -137,6 +143,9 @@
     </Compile>
     <EmbeddedResource Include="CounterRegistration.resx">
       <DependentUpon>CounterRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefaultServerAddressForm.resx">
+      <DependentUpon>DefaultServerAddressForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

@@ -22,6 +22,10 @@ namespace QueServer
 
         private void Main_Load(object sender, EventArgs e)
         {
+            string hostName = Dns.GetHostName(); // Retrive the Name of HOST
+            string myIP = Dns.GetHostEntry(hostName).AddressList[0].ToString();
+            Console.WriteLine(myIP);
+
             populateTokens();
             backgroundWorker1.RunWorkerAsync();
         }
@@ -73,7 +77,6 @@ namespace QueServer
                 // Set the TcpListener on port 13000.
                 Int32 port = 13000;
                 IPAddress localAddr = IPAddress.Parse("127.0.0.1");
-
                 // TcpListener server = new TcpListener(port);
                 server = new TcpListener(localAddr, port);
 

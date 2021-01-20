@@ -126,6 +126,7 @@ namespace QueCounter
             try
             {
                 client.Connect("127.0.0.1", port);
+
                 NetworkStream stream;
                 // Translate the passed message into ASCII and store it as a Byte array.
                 Byte[] data = System.Text.Encoding.ASCII.GetBytes(message);
@@ -175,6 +176,15 @@ namespace QueCounter
         private void button3_Click(object sender, EventArgs e)
         {
             worker.RunWorkerAsync();
+        }
+
+        private void Main_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Control&&e.Shift&&e.KeyCode == Keys.I)
+            {
+                using (var d = new DefaultServerAddressForm())
+                    d.ShowDialog();
+            }
         }
     }
 }
