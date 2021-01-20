@@ -136,5 +136,47 @@ namespace QueServer
         {
             setUpServer();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label1.Text = DateTime.Now.ToString("h:mm:ss tt  ddd  MMMM dd yyyy").ToUpper();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            toolsSubmenu.Visible = !toolsSubmenu.Visible;
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to quit this application?","", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            openServerDefaults();
+        }
+
+        void openServerDefaults()
+        {
+            using (var d = new ServerDefaults())
+                d.ShowDialog();
+        }
+
+        private void Main_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Shift&&e.KeyCode == Keys.I)
+            {
+                openServerDefaults();
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ticketSubmenu.Visible = !ticketSubmenu.Visible;
+        }
     }
 }
