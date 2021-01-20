@@ -101,6 +101,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QueModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ServerDefaults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServerDefaults.Designer.cs">
+      <DependentUpon>ServerDefaults.cs</DependentUpon>
+    </Compile>
     <Compile Include="SpeechManager.cs" />
     <EmbeddedResource Include="CounterToken.resx">
       <DependentUpon>CounterToken.cs</DependentUpon>
@@ -118,6 +124,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ServerDefaults.resx">
+      <DependentUpon>ServerDefaults.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
