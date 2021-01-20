@@ -76,7 +76,7 @@ namespace QueServer
             {
                 // Set the TcpListener on port 13000.
                 Int32 port = 13000;
-                IPAddress localAddr = IPAddress.Parse("127.0.0.1");
+                IPAddress localAddr = IPAddress.Parse(Properties.Settings.Default.ServerIp);
                 // TcpListener server = new TcpListener(port);
                 server = new TcpListener(localAddr, port);
 

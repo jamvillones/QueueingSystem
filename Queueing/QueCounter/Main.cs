@@ -125,7 +125,7 @@ namespace QueCounter
             TcpClient client = new TcpClient();
             try
             {
-                client.Connect("127.0.0.1", port);
+                client.Connect(Properties.Settings.Default.ServerIp, port);
 
                 NetworkStream stream;
                 // Translate the passed message into ASCII and store it as a Byte array.
@@ -180,7 +180,7 @@ namespace QueCounter
 
         private void Main_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Control&&e.Shift&&e.KeyCode == Keys.I)
+            if (e.Control && e.Shift && e.KeyCode == Keys.I)
             {
                 using (var d = new DefaultServerAddressForm())
                     d.ShowDialog();

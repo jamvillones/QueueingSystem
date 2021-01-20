@@ -10,8 +10,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ItemId" Type="int" Nullable="false" />
           <Property Name="CounterNumber" Type="int" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
           <Property Name="CurrentNumber" Type="int" />
         </EntityType>
         <EntityType Name="Item">
