@@ -52,7 +52,7 @@ namespace QueCounter
         }
 
         Transaction targetItem { get; set; }
-
+        Counter targetCounter { get; set; }
         int counterNum;
 
         private void Main_Load(object sender, EventArgs e)
@@ -68,6 +68,7 @@ namespace QueCounter
                 transactionType.Items.AddRange(q.Transactions.Select(x => x.Name).ToArray());
 
                 var c = q.Counters.FirstOrDefault(x => x.CounterNumber == counterNum);
+                targetCounter = c;
                 targetItem = c.Transaction;
 
                 counterNumber.Text = c.CounterNumber.ToString();
@@ -81,6 +82,7 @@ namespace QueCounter
         }
 
         Que currentNumber = null;
+
         private void nextNumber_Click(object sender, EventArgs e)
         {
             using (var q = new QueeuingEntities())
@@ -93,7 +95,7 @@ namespace QueCounter
                     var cnum = q.Ques?.FirstOrDefault(x => x.Id == currentNumber.Id);
                     if (cnum != null)
                     {
-                        cnum.Status = 2;                        
+                        cnum.Status = 2;
                     }
                 }
 
@@ -112,7 +114,7 @@ namespace QueCounter
                 {
                     q.SaveChanges();
                     currentNumberTxt.Text = "--";
-                    RunWorker();
+                    sendMessage();
                     MessageBox.Show("Numbers for this particular transaction is depleted. Choose other transactions.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
@@ -125,13 +127,13 @@ namespace QueCounter
                 q.SaveChanges();
 
                 currentNumberTxt.Text = next.TicketCode;
-                RunWorker();
+                sendMessage();
             }
 
             if (checkBox2.Checked)
                 WindowState = FormWindowState.Minimized;
         }
-        void RunWorker()
+        void sendMessage()
         {
             if (!worker.IsBusy)
                 worker.RunWorkerAsync();
@@ -223,7 +225,7 @@ namespace QueCounter
         {
             if (e.Control && e.Shift && e.KeyCode == Keys.I)
             {
-                using (var d = new DefaultServerAddressForm())
+                using (var d = new ServerDefaults())
                     d.ShowDialog();
             }
         }
@@ -232,6 +234,54 @@ namespace QueCounter
         {
             Properties.Settings.Default.AutoHide = checkBox2.Checked;
             Properties.Settings.Default.Save();
+        }
+
+        private void skip_Click(object sender, EventArgs e)
+        {
+            if (currentNumber == null)
+                return;
+
+            using (var q = new QueeuingEntities())
+            {
+                var n = q.Ques.FirstOrDefault(x => x.Id == currentNumber.Id);
+                n.Status = (int)NumberStatus.skipped;
+                q.SaveChanges();
+            }
+            currentNumberTxt.Text = "--";
+            currentNumber = null;
+            sendMessage();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            using (var skipped = new SkippedNumbers())
+            {                
+                skipped.CounterId = targetCounter.Id;
+                skipped.SkipSelect += Skipped_SkipSelect;               
+                //skipped.Parent = this;
+                skipped.ShowDialog(this);
+            }
+        }
+
+        private void Skipped_SkipSelect(object sender, int e)
+        {
+            //throw new NotImplementedException();
+            using (var q = new QueeuingEntities())
+            {
+                if (currentNumber != null)
+                {
+                    var c = q.Ques.FirstOrDefault(x => x.Id == currentNumber.Id);
+                    c.Status = (int)NumberStatus.done;
+                }
+                var skipped = q.Ques.FirstOrDefault(x => x.Id == e);
+                currentNumber = skipped;
+                currentNumberTxt.Text = skipped.TicketCode;
+                skipped.Status = (int)NumberStatus.active;
+
+                sendMessage();
+                q.SaveChanges();
+
+            }
         }
     }
 }

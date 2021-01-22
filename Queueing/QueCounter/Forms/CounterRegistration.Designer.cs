@@ -53,6 +53,7 @@
             // 
             // transactions
             // 
+            this.transactions.BackColor = System.Drawing.SystemColors.Control;
             this.transactions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.transactions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.transactions.FormattingEnabled = true;

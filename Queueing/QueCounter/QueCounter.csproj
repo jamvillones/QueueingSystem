@@ -91,12 +91,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppStartup.cs" />
-    <Compile Include="Forms\DefaultServerAddressForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\DefaultServerAddressForm.Designer.cs">
-      <DependentUpon>DefaultServerAddressForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\CounterRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +103,13 @@
     <Compile Include="Forms\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ServerDefaults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ServerDefaults.designer.cs">
+      <DependentUpon>ServerDefaults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NumberStatus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\ShowNumbersForm.cs">
@@ -117,14 +118,20 @@
     <Compile Include="Forms\ShowNumbersForm.Designer.cs">
       <DependentUpon>ShowNumbersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SkippedNumbers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SkippedNumbers.Designer.cs">
+      <DependentUpon>SkippedNumbers.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\CounterRegistration.resx">
       <DependentUpon>CounterRegistration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DefaultServerAddressForm.resx">
-      <DependentUpon>DefaultServerAddressForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ServerDefaults.resx">
+      <DependentUpon>ServerDefaults.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -138,6 +145,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\ShowNumbersForm.resx">
       <DependentUpon>ShowNumbersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SkippedNumbers.resx">
+      <DependentUpon>SkippedNumbers.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

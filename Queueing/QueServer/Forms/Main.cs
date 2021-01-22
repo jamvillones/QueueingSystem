@@ -39,15 +39,18 @@ namespace QueServer
                 {
                     var counter = q.Counters.FirstOrDefault(x => x.CounterNumber == nc);
                     var token = tableLayoutPanel1.Controls.Cast<CounterToken>().FirstOrDefault(x => x.Counter == counter.CounterNumber);
-                    if (counter.Ques.Count() == 0)
+
+                    if (counter.Ques.Any(x => x.Status == 0))
                     {
                         token.Number = "--";
                         return;
                     }
-                    var currentNumber = counter.Ques.FirstOrDefault(x => x.Status == 1);
-                    token.Number = currentNumber.TicketCode;
-                    SpeechManager.AddMessages("Now serving, " + currentNumber.TicketCode + " at counter " + counter.CounterNumber);
 
+                    var currentNumber = counter.Ques.FirstOrDefault(x => x.Status == 1);
+                    token.Number = currentNumber?.TicketCode ?? "--";
+
+                    if (currentNumber != null)
+                        SpeechManager.AddMessages("Now serving, " + currentNumber.TicketCode + " at counter " + counter.CounterNumber);
                 }
             }
         }
