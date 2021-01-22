@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C430D5F3-1F35-4419-B95F-1C4F79DB353D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Queueing</RootNamespace>
-    <AssemblyName>Queueing</AssemblyName>
+    <RootNamespace>QueReceipt</RootNamespace>
+    <AssemblyName>QueReceipt</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
