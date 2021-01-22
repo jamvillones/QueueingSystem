@@ -5,5 +5,11 @@
     <Setting Name="ServerIp" Type="System.String" Scope="User">
       <Value Profile="(Default)">192.168.254.146</Value>
     </Setting>
+    <Setting Name="WindowsState" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AutoHide" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

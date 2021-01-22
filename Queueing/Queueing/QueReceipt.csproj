@@ -9,12 +9,13 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Queueing</RootNamespace>
     <AssemblyName>Queueing</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -61,49 +62,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Counter.cs">
-      <DependentUpon>QueueingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Item.cs">
-      <DependentUpon>QueueingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="Forms\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="Forms\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="PrintFormatPreview.cs">
+    <Compile Include="Forms\PrintFormatPreview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PrintFormatPreview.Designer.cs">
+    <Compile Include="Forms\PrintFormatPreview.Designer.cs">
       <DependentUpon>PrintFormatPreview.cs</DependentUpon>
     </Compile>
     <Compile Include="PrintNumber.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Que.cs">
-      <DependentUpon>QueueingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QueueingModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QueueingModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QueueingModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QueueingModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QueueingModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QueueingModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="TicketConfirmationForm.cs">
+    <Compile Include="Forms\TicketConfirmationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TicketConfirmationForm.Designer.cs">
+    <Compile Include="Forms\TicketConfirmationForm.Designer.cs">
       <DependentUpon>TicketConfirmationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TicketToken.cs">
@@ -112,10 +89,10 @@
     <Compile Include="TicketToken.Designer.cs">
       <DependentUpon>TicketToken.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Main.resx">
+    <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PrintFormatPreview.resx">
+    <EmbeddedResource Include="Forms\PrintFormatPreview.resx">
       <DependentUpon>PrintFormatPreview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -126,8 +103,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TicketConfirmationForm.resx">
+    <EmbeddedResource Include="Forms\TicketConfirmationForm.resx">
       <DependentUpon>TicketConfirmationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TicketToken.resx">
@@ -143,32 +121,21 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="QueueingModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QueueingModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="QueueingModel.edmx.diagram">
-      <DependentUpon>QueueingModel.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons2_cash_register.ico" />
-    <Content Include="QueueingModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QueueingModel.edmx</DependentUpon>
-      <LastGenOutput>QueueingModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="QueueingModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QueueingModel.edmx</DependentUpon>
-      <LastGenOutput>QueueingModel.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QueDatabaseModel\DatabaseModel.csproj">
+      <Project>{94f65225-c739-4724-9a87-7c29554ba0d0}</Project>
+      <Name>DatabaseModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

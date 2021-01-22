@@ -34,5 +34,17 @@ namespace QueServer.Properties {
                 this["ServerIp"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SidePanelVisibility {
+            get {
+                return ((bool)(this["SidePanelVisibility"]));
+            }
+            set {
+                this["SidePanelVisibility"] = value;
+            }
+        }
     }
 }

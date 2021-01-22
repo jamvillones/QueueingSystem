@@ -39,7 +39,7 @@
             this.transactionName.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transactionName.Location = new System.Drawing.Point(26, 22);
             this.transactionName.Name = "transactionName";
-            this.transactionName.Size = new System.Drawing.Size(340, 97);
+            this.transactionName.Size = new System.Drawing.Size(330, 97);
             this.transactionName.TabIndex = 0;
             this.transactionName.Text = "[TRANSACTION]\r\nTEST";
             this.transactionName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -50,7 +50,7 @@
             this.divider.BackColor = System.Drawing.Color.Black;
             this.divider.Location = new System.Drawing.Point(20, 122);
             this.divider.Name = "divider";
-            this.divider.Size = new System.Drawing.Size(351, 2);
+            this.divider.Size = new System.Drawing.Size(341, 2);
             this.divider.TabIndex = 1;
             // 
             // counterLabel
@@ -59,7 +59,7 @@
             this.counterLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.counterLabel.Location = new System.Drawing.Point(26, 127);
             this.counterLabel.Name = "counterLabel";
-            this.counterLabel.Size = new System.Drawing.Size(340, 51);
+            this.counterLabel.Size = new System.Drawing.Size(330, 51);
             this.counterLabel.TabIndex = 2;
             this.counterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -74,7 +74,7 @@
             this.Controls.Add(this.transactionName);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TicketToken";
-            this.Size = new System.Drawing.Size(390, 200);
+            this.Size = new System.Drawing.Size(380, 200);
             this.Load += new System.EventHandler(this.TicketToken_Load);
             this.ResumeLayout(false);
 

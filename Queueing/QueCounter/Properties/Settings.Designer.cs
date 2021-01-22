@@ -34,5 +34,29 @@ namespace QueCounter.Properties {
                 this["ServerIp"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool WindowsState {
+            get {
+                return ((bool)(this["WindowsState"]));
+            }
+            set {
+                this["WindowsState"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoHide {
+            get {
+                return ((bool)(this["AutoHide"]));
+            }
+            set {
+                this["AutoHide"] = value;
+            }
+        }
     }
 }

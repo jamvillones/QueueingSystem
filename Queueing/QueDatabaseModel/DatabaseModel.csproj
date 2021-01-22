@@ -5,20 +5,18 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{43CB8CAA-87B3-470D-B23C-B92CD0A316E1}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>QueServer</RootNamespace>
-    <AssemblyName>QueServer</AssemblyName>
+    <ProjectGuid>{94F65225-C739-4724-9A87-7C29554BA0D0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QueDatabaseModel</RootNamespace>
+    <AssemblyName>QueDatabaseModel</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -28,16 +26,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>icons8_e-learning.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -51,100 +45,65 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
-    <Reference Include="System.Speech" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CounterToken.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Counter.cs">
+      <DependentUpon>QueModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CounterToken.Designer.cs">
-      <DependentUpon>CounterToken.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CreateTransaction.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CreateTransaction.Designer.cs">
-      <DependentUpon>CreateTransaction.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Main.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\ServerDefaults.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Que.cs">
+      <DependentUpon>QueModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ServerDefaults.Designer.cs">
-      <DependentUpon>ServerDefaults.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SpeechManager.cs" />
-    <Compile Include="Forms\TransactionList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\TransactionList.Designer.cs">
-      <DependentUpon>TransactionList.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="CounterToken.resx">
-      <DependentUpon>CounterToken.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CreateTransaction.resx">
-      <DependentUpon>CreateTransaction.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Include="QueModel.Context.cs">
       <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
+      <DependentUpon>QueModel.Context.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\ServerDefaults.resx">
-      <DependentUpon>ServerDefaults.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TransactionList.resx">
-      <DependentUpon>TransactionList.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
+    <Compile Include="QueModel.cs">
       <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QueModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QueModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QueModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction.cs">
+      <DependentUpon>QueModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="QueModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QueModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="QueModel.edmx.diagram">
+      <DependentUpon>QueModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="icons8_e-learning.ico" />
+    <Content Include="QueModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QueModel.edmx</DependentUpon>
+      <LastGenOutput>QueModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="QueModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QueModel.edmx</DependentUpon>
+      <LastGenOutput>QueModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\QueDatabaseModel\DatabaseModel.csproj">
-      <Project>{94f65225-c739-4724-9a87-7c29554ba0d0}</Project>
-      <Name>DatabaseModel</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

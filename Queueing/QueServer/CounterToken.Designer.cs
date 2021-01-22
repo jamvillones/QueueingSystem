@@ -40,7 +40,7 @@
             this.counterLabel.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.counterLabel.Location = new System.Drawing.Point(34, 10);
             this.counterLabel.Name = "counterLabel";
-            this.counterLabel.Size = new System.Drawing.Size(330, 29);
+            this.counterLabel.Size = new System.Drawing.Size(378, 29);
             this.counterLabel.TabIndex = 0;
             this.counterLabel.Text = "COUNTER 1";
             this.counterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -52,7 +52,7 @@
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(34, 49);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(328, 1);
+            this.panel1.Size = new System.Drawing.Size(376, 1);
             this.panel1.TabIndex = 1;
             // 
             // numberLabel
@@ -64,7 +64,7 @@
             this.numberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.numberLabel.Location = new System.Drawing.Point(15, 67);
             this.numberLabel.Name = "numberLabel";
-            this.numberLabel.Size = new System.Drawing.Size(365, 104);
+            this.numberLabel.Size = new System.Drawing.Size(413, 102);
             this.numberLabel.TabIndex = 2;
             this.numberLabel.Text = "WWW999P";
             this.numberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -78,9 +78,9 @@
             this.Controls.Add(this.numberLabel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.counterLabel);
-            this.Margin = new System.Windows.Forms.Padding(1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CounterToken";
-            this.Size = new System.Drawing.Size(395, 190);
+            this.Size = new System.Drawing.Size(443, 188);
             this.ResumeLayout(false);
 
         }

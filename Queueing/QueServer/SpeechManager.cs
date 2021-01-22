@@ -13,22 +13,16 @@ namespace QueServer
     {
         static Queue<String> speeches = new Queue<string>();
 
-        //static bool active;
         static Thread t;
 
         static public void AddMessages(string message)
         {
-
             speeches.Enqueue(message);
 
             if (t == null)
             {
-                Console.WriteLine("t");
-                //t = new Thread(new ThreadStart(PlayMessages));
                 t = new Thread(new ThreadStart(PlayMessages));
-                t.Name = "voice_thread";
                 t.Start();
-                ////PlayMessages();
             }
         }
 
@@ -40,12 +34,11 @@ namespace QueServer
 
                 while (speeches.Count != 0)
                 {
-                    string c = speeches.Dequeue();
+                    string nextMessage = speeches.Dequeue();
 
-                    Prompt text = new Prompt("Now serving, " + c);
-                    //Speak the contents of the prompt synchronously.
+                    Prompt text = new Prompt(nextMessage);
+
                     synth.Speak(text);
-                    Console.WriteLine(Thread.CurrentThread.Name);
                 }
             }
 

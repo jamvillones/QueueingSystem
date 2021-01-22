@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueCounter", "QueCounter\Qu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueServer", "QueServer\QueServer.csproj", "{43CB8CAA-87B3-470D-B23C-B92CD0A316E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseModel", "QueDatabaseModel\DatabaseModel.csproj", "{94F65225-C739-4724-9A87-7C29554BA0D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{43CB8CAA-87B3-470D-B23C-B92CD0A316E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43CB8CAA-87B3-470D-B23C-B92CD0A316E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43CB8CAA-87B3-470D-B23C-B92CD0A316E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94F65225-C739-4724-9A87-7C29554BA0D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94F65225-C739-4724-9A87-7C29554BA0D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94F65225-C739-4724-9A87-7C29554BA0D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94F65225-C739-4724-9A87-7C29554BA0D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
