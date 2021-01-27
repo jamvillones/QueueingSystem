@@ -28,6 +28,18 @@ namespace QueServer
 
             populateTokens();
             backgroundWorker1.RunWorkerAsync();
+            SpeechManager.OnSpeechPlaying += SpeechManager_OnSpeechPlaying;
+        }
+
+        private void SpeechManager_OnSpeechPlaying(object sender, bool e)
+        {
+            //throw new NotImplementedException();
+            if (e)            
+                videoPlayer.settings.volume = 10;
+            
+            else
+                videoPlayer.settings.volume = 100;
+
         }
 
         void processNotification(string n)
@@ -168,6 +180,8 @@ namespace QueServer
         {
             if (MessageBox.Show("Are you sure you want to quit this application?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
+            videoPlayer.Ctlcontrols.stop();
+            videoPlayer.Dispose();
 
             this.Close();
         }
