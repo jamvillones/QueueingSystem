@@ -91,12 +91,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\ServerDefaults.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ServerDefaults.Designer.cs">
-      <DependentUpon>ServerDefaults.cs</DependentUpon>
-    </Compile>
     <Compile Include="SpeechManager.cs" />
     <Compile Include="Forms\TransactionList.cs">
       <SubType>Form</SubType>
@@ -124,9 +118,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Forms\ServerDefaults.resx">
-      <DependentUpon>ServerDefaults.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\TransactionList.resx">
       <DependentUpon>TransactionList.cs</DependentUpon>
     </EmbeddedResource>

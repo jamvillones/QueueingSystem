@@ -34,7 +34,6 @@
             this.settingsSubPanel = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -90,13 +89,12 @@
             this.settingsSubPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.settingsSubPanel.Controls.Add(this.button2);
             this.settingsSubPanel.Controls.Add(this.button4);
-            this.settingsSubPanel.Controls.Add(this.button3);
             this.settingsSubPanel.Controls.Add(this.button7);
             this.settingsSubPanel.Controls.Add(this.button10);
             this.settingsSubPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.settingsSubPanel.Location = new System.Drawing.Point(0, 300);
+            this.settingsSubPanel.Location = new System.Drawing.Point(0, 325);
             this.settingsSubPanel.Name = "settingsSubPanel";
-            this.settingsSubPanel.Size = new System.Drawing.Size(163, 125);
+            this.settingsSubPanel.Size = new System.Drawing.Size(163, 100);
             this.settingsSubPanel.TabIndex = 9;
             this.settingsSubPanel.Visible = false;
             // 
@@ -108,7 +106,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 100);
+            this.button2.Location = new System.Drawing.Point(0, 75);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(163, 25);
             this.button2.TabIndex = 16;
@@ -126,7 +124,7 @@
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(0, 75);
+            this.button4.Location = new System.Drawing.Point(0, 50);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(163, 25);
             this.button4.TabIndex = 14;
@@ -134,25 +132,6 @@
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 50);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(163, 25);
-            this.button3.TabIndex = 13;
-            this.button3.Text = " SERVER DEFAULTS";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.button3, "Change server host address (Shift+I)");
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button7
             // 
@@ -451,7 +430,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel settingsSubPanel;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Panel CenterPanel;
