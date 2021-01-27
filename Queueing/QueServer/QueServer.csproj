@@ -98,7 +98,6 @@
     <Compile Include="Forms\TransactionList.Designer.cs">
       <DependentUpon>TransactionList.cs</DependentUpon>
     </Compile>
-    <Compile Include="VideoSource.cs" />
     <EmbeddedResource Include="CounterToken.resx">
       <DependentUpon>CounterToken.cs</DependentUpon>
     </EmbeddedResource>
