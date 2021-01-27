@@ -50,13 +50,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.CenterPanel = new System.Windows.Forms.Panel();
+            this.centerTable = new System.Windows.Forms.TableLayoutPanel();
+            this.numbersTable = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.videoPlayer = new AxWMPLib.AxWindowsMediaPlayer();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.sidePanel.SuspendLayout();
             this.settingsSubPanel.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.topPanel.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.CenterPanel.SuspendLayout();
+            this.centerTable.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.videoPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // sidePanel
@@ -298,22 +307,83 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // CenterPanel
+            // 
+            this.CenterPanel.Controls.Add(this.centerTable);
+            this.CenterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CenterPanel.Location = new System.Drawing.Point(163, 29);
+            this.CenterPanel.Name = "CenterPanel";
+            this.CenterPanel.Size = new System.Drawing.Size(681, 401);
+            this.CenterPanel.TabIndex = 5;
+            // 
+            // centerTable
+            // 
+            this.centerTable.ColumnCount = 2;
+            this.centerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.centerTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.centerTable.Controls.Add(this.numbersTable, 0, 0);
+            this.centerTable.Controls.Add(this.tableLayoutPanel1, 1, 0);
+            this.centerTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.centerTable.Location = new System.Drawing.Point(0, 0);
+            this.centerTable.Name = "centerTable";
+            this.centerTable.RowCount = 1;
+            this.centerTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.centerTable.Size = new System.Drawing.Size(681, 401);
+            this.centerTable.TabIndex = 0;
+            // 
+            // numbersTable
+            // 
+            this.numbersTable.ColumnCount = 2;
+            this.numbersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.numbersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.numbersTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numbersTable.Location = new System.Drawing.Point(3, 3);
+            this.numbersTable.Name = "numbersTable";
+            this.numbersTable.RowCount = 6;
+            this.numbersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.numbersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.numbersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.numbersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.numbersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.numbersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.numbersTable.Size = new System.Drawing.Size(266, 395);
+            this.numbersTable.TabIndex = 5;
+            // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.videoPlayer, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.listBox1, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(163, 29);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(275, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(681, 401);
-            this.tableLayoutPanel1.TabIndex = 4;
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(403, 395);
+            this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // videoPlayer
+            // 
+            this.videoPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoPlayer.Enabled = true;
+            this.videoPlayer.Location = new System.Drawing.Point(3, 3);
+            this.videoPlayer.Name = "videoPlayer";
+            this.videoPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("videoPlayer.OcxState")));
+            this.videoPlayer.Size = new System.Drawing.Size(397, 270);
+            this.videoPlayer.TabIndex = 7;
+            this.videoPlayer.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.VideoPlayer_PlayStateChange);
+            // 
+            // listBox1
+            // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(3, 279);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(397, 113);
+            this.listBox1.TabIndex = 8;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // Main
             // 
@@ -323,7 +393,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(844, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.CenterPanel);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.sidePanel);
@@ -341,6 +411,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.topPanel.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.CenterPanel.ResumeLayout(false);
+            this.centerTable.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.videoPlayer)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -361,13 +435,18 @@
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel settingsSubPanel;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Panel CenterPanel;
+        private System.Windows.Forms.TableLayoutPanel centerTable;
+        private System.Windows.Forms.TableLayoutPanel numbersTable;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private AxWMPLib.AxWindowsMediaPlayer videoPlayer;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

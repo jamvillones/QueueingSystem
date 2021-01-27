@@ -37,10 +37,11 @@
             // 
             this.counterLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.counterLabel.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.counterLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.counterLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.counterLabel.Location = new System.Drawing.Point(34, 10);
             this.counterLabel.Name = "counterLabel";
-            this.counterLabel.Size = new System.Drawing.Size(378, 29);
+            this.counterLabel.Size = new System.Drawing.Size(378, 20);
             this.counterLabel.TabIndex = 0;
             this.counterLabel.Text = "COUNTER 1";
             this.counterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -50,7 +51,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(34, 49);
+            this.panel1.Location = new System.Drawing.Point(34, 32);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(376, 1);
             this.panel1.TabIndex = 1;
@@ -60,11 +61,11 @@
             this.numberLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numberLabel.Font = new System.Drawing.Font("Times New Roman", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberLabel.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.numberLabel.Location = new System.Drawing.Point(15, 67);
+            this.numberLabel.Location = new System.Drawing.Point(15, 36);
             this.numberLabel.Name = "numberLabel";
-            this.numberLabel.Size = new System.Drawing.Size(413, 102);
+            this.numberLabel.Size = new System.Drawing.Size(413, 133);
             this.numberLabel.TabIndex = 2;
             this.numberLabel.Text = "WWW999P";
             this.numberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.transactionsTable = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,9 +46,20 @@
             this.transactionsTable.AllowUserToDeleteRows = false;
             this.transactionsTable.AllowUserToResizeColumns = false;
             this.transactionsTable.AllowUserToResizeRows = false;
+            this.transactionsTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.transactionsTable.BackgroundColor = System.Drawing.SystemColors.Control;
             this.transactionsTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.transactionsTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.transactionsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.transactionsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.transactionsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -54,13 +67,22 @@
             this.prefCol,
             this.detCol,
             this.delCol});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.transactionsTable.DefaultCellStyle = dataGridViewCellStyle8;
             this.transactionsTable.EnableHeadersVisualStyles = false;
             this.transactionsTable.Location = new System.Drawing.Point(12, 49);
             this.transactionsTable.MultiSelect = false;
             this.transactionsTable.Name = "transactionsTable";
             this.transactionsTable.ReadOnly = true;
             this.transactionsTable.RowHeadersVisible = false;
-            this.transactionsTable.Size = new System.Drawing.Size(776, 389);
+            this.transactionsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.transactionsTable.Size = new System.Drawing.Size(360, 444);
             this.transactionsTable.TabIndex = 0;
             // 
             // Column1
@@ -105,7 +127,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(599, 12);
+            this.button1.Location = new System.Drawing.Point(183, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(189, 30);
             this.button1.TabIndex = 1;
@@ -117,12 +139,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(384, 505);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.transactionsTable);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TransactionList";
+            this.Opacity = 0.8D;
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transaction List";
             this.Load += new System.EventHandler(this.TransactionList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.transactionsTable)).EndInit();

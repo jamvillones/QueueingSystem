@@ -21,12 +21,31 @@ namespace QueServer
             InitializeComponent();
         }
 
+        int playIndex = 0;
+
         private void Main_Load(object sender, EventArgs e)
         {
-            //sidePanel.Visible = Properties.Settings.Default.SidePanelVisibility;
+            videoPlayer.uiMode = "none";
+            videoPlayer.URL = VideoSource.FolderPath + VideoSource.FileNames[playIndex];
+
+            videoPlayer.Ctlcontrols.play();
+            videoPlayer.settings.setMode("loop", true);
+            //videoPlayer.settings.autoStart = true;        
+
+            listBox1.Items.AddRange(VideoSource.FileNames);
 
             populateTokens();
             backgroundWorker1.RunWorkerAsync();
+        }
+
+        private void VideoPlayer_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        {
+            //Console.WriteLine(e.newState);
+            //if (e.newState == 8)
+            //{
+            //    videoPlayer.URL = VideoSource.FolderPath + VideoSource.FileNames[1];
+            //    videoPlayer.Ctlcontrols.play();
+            //}
         }
 
         void processNotification(string n)
@@ -38,7 +57,7 @@ namespace QueServer
                 using (var q = new QueeuingEntities())
                 {
                     var counter = q.Counters.FirstOrDefault(x => x.CounterNumber == nc);
-                    var token = tableLayoutPanel1.Controls.Cast<CounterToken>().FirstOrDefault(x => x.Counter == counter.CounterNumber);
+                    var token = numbersTable.Controls.Cast<CounterToken>().FirstOrDefault(x => x.Counter == counter.CounterNumber);
 
                     if (counter.Ques.Any(x => x.Status == 0))
                     {
@@ -70,7 +89,7 @@ namespace QueServer
                     var currentNumber = i.Ques.FirstOrDefault(x => x.Status == 1);
 
                     token.Number = currentNumber?.TicketCode ?? "--";
-                    tableLayoutPanel1.Controls.Add(token);
+                    numbersTable.Controls.Add(token);
                 }
             }
         }
@@ -179,18 +198,6 @@ namespace QueServer
             {
                 openServerDefaults();
             }
-            //if (e.Control && e.KeyCode == Keys.H)
-            //{
-            //    //sidePanel.Visible = !sidePanel.Visible;
-
-            //    //button1.Visible = !button1.Visible;
-            //    //button6.Visible = !button6.Visible;
-            //    //toolsSubmenu.Visible = !toolsSubmenu.Visible;
-            //    //ticketSubmenu.Visible = !ticketSubmenu.Visible;
-
-            //    //Properties.Settings.Default.SidePanelVisibility = sidePanel.Visible;
-            //    //Properties.Settings.Default.Save();
-            //}
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -207,6 +214,12 @@ namespace QueServer
         private void button1_Click_1(object sender, EventArgs e)
         {
             settingsSubPanel.Visible = !settingsSubPanel.Visible;
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            videoPlayer.URL = VideoSource.FolderPath + VideoSource.FileNames[listBox1.SelectedIndex];
+            videoPlayer.Ctlcontrols.play();
         }
     }
 }

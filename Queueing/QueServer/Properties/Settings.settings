@@ -8,5 +8,8 @@
     <Setting Name="SidePanelVisibility" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="VideosFolderPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\Jamil Villones\Videos\Samples\</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

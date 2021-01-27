@@ -26,7 +26,7 @@ namespace QueServer
         {
             if (MessageBox.Show("Are you sure you want to change host address? This will need a restart to the application to apply the changes.", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 return;
-            Properties.Settings.Default.ServerIp = textBox1.Text;
+            Properties.Settings.Default.ServerIp = textBox1.Text.Trim();
             Properties.Settings.Default.Save();
         }
 

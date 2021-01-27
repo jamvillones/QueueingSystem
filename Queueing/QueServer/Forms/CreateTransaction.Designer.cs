@@ -90,7 +90,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Location = new System.Drawing.Point(13, 246);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(413, 23);
+            this.button1.Size = new System.Drawing.Size(368, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "ADD";
             this.button1.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 281);
+            this.ClientSize = new System.Drawing.Size(393, 281);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);

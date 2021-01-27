@@ -46,5 +46,17 @@ namespace QueServer.Properties {
                 this["SidePanelVisibility"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Jamil Villones\\Videos\\Samples\\")]
+        public string VideosFolderPath {
+            get {
+                return ((string)(this["VideosFolderPath"]));
+            }
+            set {
+                this["VideosFolderPath"] = value;
+            }
+        }
     }
 }
