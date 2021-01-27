@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.sidePanel = new System.Windows.Forms.Panel();
             this.settingsSubPanel = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -55,7 +56,7 @@
             this.numbersTable = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.videoPlayer = new AxWMPLib.AxWindowsMediaPlayer();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.ofdVideos = new System.Windows.Forms.OpenFileDialog();
             this.sidePanel.SuspendLayout();
             this.settingsSubPanel.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -87,16 +88,35 @@
             // 
             this.settingsSubPanel.AutoSize = true;
             this.settingsSubPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.settingsSubPanel.Controls.Add(this.button2);
             this.settingsSubPanel.Controls.Add(this.button4);
             this.settingsSubPanel.Controls.Add(this.button3);
             this.settingsSubPanel.Controls.Add(this.button7);
             this.settingsSubPanel.Controls.Add(this.button10);
             this.settingsSubPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.settingsSubPanel.Location = new System.Drawing.Point(0, 325);
+            this.settingsSubPanel.Location = new System.Drawing.Point(0, 300);
             this.settingsSubPanel.Name = "settingsSubPanel";
-            this.settingsSubPanel.Size = new System.Drawing.Size(163, 100);
+            this.settingsSubPanel.Size = new System.Drawing.Size(163, 125);
             this.settingsSubPanel.TabIndex = 9;
             this.settingsSubPanel.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(0, 100);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(163, 25);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "SELECT VIDEOS";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
             // 
@@ -354,13 +374,12 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.videoPlayer, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.listBox1, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(275, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(403, 395);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
@@ -371,19 +390,13 @@
             this.videoPlayer.Location = new System.Drawing.Point(3, 3);
             this.videoPlayer.Name = "videoPlayer";
             this.videoPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("videoPlayer.OcxState")));
-            this.videoPlayer.Size = new System.Drawing.Size(397, 270);
+            this.videoPlayer.Size = new System.Drawing.Size(397, 231);
             this.videoPlayer.TabIndex = 7;
-            this.videoPlayer.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.VideoPlayer_PlayStateChange);
             // 
-            // listBox1
+            // ofdVideos
             // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(3, 279);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(397, 113);
-            this.listBox1.TabIndex = 8;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.ofdVideos.Filter = "MP4 files|*.mp4|MKV files|*.mkv";
+            this.ofdVideos.Multiselect = true;
             // 
             // Main
             // 
@@ -446,7 +459,8 @@
         private System.Windows.Forms.TableLayoutPanel numbersTable;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private AxWMPLib.AxWindowsMediaPlayer videoPlayer;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.OpenFileDialog ofdVideos;
     }
 }
 

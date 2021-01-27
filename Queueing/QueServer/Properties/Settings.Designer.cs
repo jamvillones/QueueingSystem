@@ -49,7 +49,7 @@ namespace QueServer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Jamil Villones\\Videos\\Samples\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Videos\\")]
         public string VideosFolderPath {
             get {
                 return ((string)(this["VideosFolderPath"]));

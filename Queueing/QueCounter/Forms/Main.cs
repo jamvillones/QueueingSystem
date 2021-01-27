@@ -28,11 +28,13 @@ namespace QueCounter
             {
                 if (m.WParam == SC_MAX) // Maximize event - SC_MAXIMIZE from Winuser.h
                 {
+                    Console.WriteLine("maximize");
                     Properties.Settings.Default.WindowsState = true;
                     Properties.Settings.Default.Save();
                 }
                 else if (m.WParam == SC_NORMAL)
                 {
+                    Console.WriteLine("minimize");
                     Properties.Settings.Default.WindowsState = false;
                     Properties.Settings.Default.Save();
                 }

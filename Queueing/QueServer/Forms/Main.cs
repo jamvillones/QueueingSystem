@@ -21,31 +21,13 @@ namespace QueServer
             InitializeComponent();
         }
 
-        int playIndex = 0;
-
         private void Main_Load(object sender, EventArgs e)
         {
             videoPlayer.uiMode = "none";
-            videoPlayer.URL = VideoSource.FolderPath + VideoSource.FileNames[playIndex];
-
-            videoPlayer.Ctlcontrols.play();
             videoPlayer.settings.setMode("loop", true);
-            //videoPlayer.settings.autoStart = true;        
-
-            listBox1.Items.AddRange(VideoSource.FileNames);
 
             populateTokens();
             backgroundWorker1.RunWorkerAsync();
-        }
-
-        private void VideoPlayer_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
-        {
-            //Console.WriteLine(e.newState);
-            //if (e.newState == 8)
-            //{
-            //    videoPlayer.URL = VideoSource.FolderPath + VideoSource.FileNames[1];
-            //    videoPlayer.Ctlcontrols.play();
-            //}
         }
 
         void processNotification(string n)
@@ -73,7 +55,6 @@ namespace QueServer
                 }
             }
         }
-        int columnCount = 4;
 
         void populateTokens()
         {
@@ -218,8 +199,25 @@ namespace QueServer
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            videoPlayer.URL = VideoSource.FolderPath + VideoSource.FileNames[listBox1.SelectedIndex];
-            videoPlayer.Ctlcontrols.play();
+            //videoPlayer.URL = VideoSource.FolderPath + VideoSource.FileNames[listBox1.SelectedIndex];
+            //videoPlayer.Ctlcontrols.play();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            WMPLib.IWMPPlaylist playlist = videoPlayer.playlistCollection.newPlaylist("myplaylist");
+            WMPLib.IWMPMedia media;
+            if (ofdVideos.ShowDialog() == DialogResult.OK)
+            {
+                foreach (string file in ofdVideos.FileNames)
+                {
+                    media = videoPlayer.newMedia(file);
+                    playlist.appendItem(media);
+                }
+
+                videoPlayer.currentPlaylist = playlist;
+                videoPlayer.Ctlcontrols.play();
+            }
         }
     }
 }
