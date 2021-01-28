@@ -34,9 +34,9 @@ namespace QueServer
         private void SpeechManager_OnSpeechPlaying(object sender, bool e)
         {
             //throw new NotImplementedException();
-            if (e)            
+            if (e)
                 videoPlayer.settings.volume = 10;
-            
+
             else
                 videoPlayer.settings.volume = 100;
 
@@ -201,6 +201,14 @@ namespace QueServer
             if (e.Shift && e.KeyCode == Keys.I)
             {
                 openServerDefaults();
+            }
+            if (e.Control && e.KeyCode == Keys.Right)
+            {
+                videoPlayer.Ctlcontrols.next();
+            }
+            if (e.Control && e.KeyCode == Keys.Left)
+            {
+                videoPlayer.Ctlcontrols.previous();
             }
         }
 
