@@ -225,16 +225,14 @@ namespace QueServer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (videoPlayer.currentPlaylist != null)
-            {
-                videoPlayer.currentPlaylist.clear();
-            }
-
-            WMPLib.IWMPPlaylist playlist = videoPlayer.playlistCollection.newPlaylist("myplaylist");
-            WMPLib.IWMPMedia media;
-
             if (ofdVideos.ShowDialog() == DialogResult.OK)
             {
+                if (videoPlayer.currentPlaylist != null)
+                {
+                    videoPlayer.currentPlaylist.clear();
+                }
+                WMPLib.IWMPPlaylist playlist = videoPlayer.playlistCollection.newPlaylist("myplaylist");
+                WMPLib.IWMPMedia media;
                 foreach (string file in ofdVideos.FileNames)
                 {
                     media = videoPlayer.newMedia(file);
