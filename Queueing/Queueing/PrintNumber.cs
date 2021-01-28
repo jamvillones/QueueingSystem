@@ -15,7 +15,7 @@ namespace Queueing
             var centerFormat = new StringFormat();
             centerFormat.Alignment = StringAlignment.Center;
 
-            string title = "habitasse platea dictumst vestibulum rhoncus est";
+            string title = "MUNICIPALITY OF KALIBO";
             var titleSize = e.Graphics.MeasureString(title, categoryFont, e.PageBounds.Width);
             var titleRect = new Rectangle(0, 0, e.PageBounds.Width, (int)titleSize.Height);
             e.Graphics.DrawString(title.ToUpper(), categoryFont, Brushes.Black, titleRect, centerFormat);
@@ -26,9 +26,9 @@ namespace Queueing
 
             var categorySize = e.Graphics.MeasureString(Category, categoryFont, e.PageBounds.Width);
             var catRect = new Rectangle(0, numberRect.Bottom, e.PageBounds.Width, (int)categorySize.Width);
-            e.Graphics.DrawString(Category + "\n\n" + DateTime.Now.ToString("MMMM dd, yyyy hh:mm tt"), categoryFont, Brushes.Black, catRect, centerFormat);
+            e.Graphics.DrawString(Category + "\n\n" + DateTime.Now.ToString("MMMM dd, yyyy hh:mm tt")+ "\n\nViva kay Senior Sto. Niño!", categoryFont, Brushes.Black, catRect, centerFormat);
         }
-        static Font numberFont = new Font("Times New Roman", 20, FontStyle.Bold);
-        static Font categoryFont = new Font("Times New Roman", 8, FontStyle.Regular);
+        static Font numberFont = new Font("Times New Roman", 48, FontStyle.Bold);
+        static Font categoryFont = new Font("Times New Roman", 12, FontStyle.Regular);
     }
 }
