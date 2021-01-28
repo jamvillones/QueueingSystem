@@ -12,7 +12,7 @@ namespace QueServer
     public static class SpeechManager
     {
         static Queue<String> speeches = new Queue<string>();
-
+        public static event EventHandler<bool> OnSpeechPlaying;
         static Thread t;
 
         static public void AddMessages(string message)
@@ -32,6 +32,8 @@ namespace QueServer
             {
                 synth.SetOutputToDefaultAudioDevice();
 
+                OnSpeechPlaying?.Invoke(null,true);
+
                 while (speeches.Count != 0)
                 {
                     string nextMessage = speeches.Dequeue();
@@ -40,6 +42,8 @@ namespace QueServer
 
                     synth.Speak(text);
                 }
+
+                OnSpeechPlaying?.Invoke(null, false);
             }
 
             t = null;

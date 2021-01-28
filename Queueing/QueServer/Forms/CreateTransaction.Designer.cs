@@ -42,10 +42,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.nameTxt);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(413, 39);
+            this.groupBox1.Size = new System.Drawing.Size(368, 39);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Name";
@@ -58,15 +60,17 @@
             this.nameTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.nameTxt.Location = new System.Drawing.Point(6, 18);
             this.nameTxt.Name = "nameTxt";
-            this.nameTxt.Size = new System.Drawing.Size(401, 13);
+            this.nameTxt.Size = new System.Drawing.Size(356, 13);
             this.nameTxt.TabIndex = 0;
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.prefTxt);
             this.groupBox2.Location = new System.Drawing.Point(13, 58);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(413, 39);
+            this.groupBox2.Size = new System.Drawing.Size(368, 39);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Prefix";
@@ -80,28 +84,32 @@
             this.prefTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.prefTxt.Location = new System.Drawing.Point(6, 18);
             this.prefTxt.Name = "prefTxt";
-            this.prefTxt.Size = new System.Drawing.Size(401, 13);
+            this.prefTxt.Size = new System.Drawing.Size(356, 13);
             this.prefTxt.TabIndex = 0;
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(13, 246);
+            this.button1.Location = new System.Drawing.Point(13, 252);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(368, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "ADD";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.detTxt);
             this.groupBox3.Location = new System.Drawing.Point(13, 103);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(413, 137);
+            this.groupBox3.Size = new System.Drawing.Size(368, 144);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Details";
@@ -117,14 +125,14 @@
             this.detTxt.MaxLength = 500;
             this.detTxt.Multiline = true;
             this.detTxt.Name = "detTxt";
-            this.detTxt.Size = new System.Drawing.Size(401, 113);
+            this.detTxt.Size = new System.Drawing.Size(356, 120);
             this.detTxt.TabIndex = 0;
             // 
             // CreateTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(393, 281);
+            this.ClientSize = new System.Drawing.Size(393, 287);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
@@ -132,6 +140,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CreateTransaction";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Transaction";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CreateTransaction_FormClosing);
             this.groupBox1.ResumeLayout(false);
