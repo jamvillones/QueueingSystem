@@ -152,7 +152,7 @@ namespace QueCounter
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void showOnque_Click(object sender, EventArgs e)
         {
             using (var numList = new ShowNumbersForm())
                 numList.ShowDialog();
@@ -217,7 +217,7 @@ namespace QueCounter
             sendNotif(counterNum.ToString());
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void recallNumber_Click(object sender, EventArgs e)
         {
             if (!worker.IsBusy)
                 worker.RunWorkerAsync();
@@ -254,7 +254,7 @@ namespace QueCounter
             sendMessage();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void showSkipped_Click(object sender, EventArgs e)
         {
             using (var skipped = new SkippedNumbers())
             {                
