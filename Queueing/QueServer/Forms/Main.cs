@@ -243,5 +243,23 @@ namespace QueServer
                 videoPlayer.Ctlcontrols.play();
             }
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want clear the number in Queue and reset all numbers to 1?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                return;
+            using(var q = new QueeuingEntities())
+            {
+                foreach (var i in q.Transactions)
+                    i.CurrentNumber = 0;
+
+                q.Ques.RemoveRange(q.Ques);
+                q.SaveChanges();
+            }
+
+            var token = numbersTable.Controls.Cast<CounterToken>();
+            foreach (var i in token)
+                i.Number = "--";
+        }
     }
 }
