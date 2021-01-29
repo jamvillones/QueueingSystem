@@ -34,5 +34,65 @@ namespace QueServer.Properties {
                 this["SidePanelVisibility"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.254.146")]
+        public string ServerIp {
+            get {
+                return ((string)(this["ServerIp"]));
+            }
+            set {
+                this["ServerIp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Videos\\")]
+        public string VideosFolderPath {
+            get {
+                return ((string)(this["VideosFolderPath"]));
+            }
+            set {
+                this["VideosFolderPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int NormalVolume {
+            get {
+                return ((int)(this["NormalVolume"]));
+            }
+            set {
+                this["NormalVolume"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int TalkingVolume {
+            get {
+                return ((int)(this["TalkingVolume"]));
+            }
+            set {
+                this["TalkingVolume"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int BottomVolume {
+            get {
+                return ((int)(this["BottomVolume"]));
+            }
+            set {
+                this["BottomVolume"] = value;
+            }
+        }
     }
 }

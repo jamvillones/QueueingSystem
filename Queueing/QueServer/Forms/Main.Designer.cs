@@ -54,8 +54,9 @@
             this.centerTable = new System.Windows.Forms.TableLayoutPanel();
             this.numbersTable = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.videoPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.ofdVideos = new System.Windows.Forms.OpenFileDialog();
+            this.videoPlayerTop = new AxWMPLib.AxWindowsMediaPlayer();
+            this.videoPlayerBottom = new AxWMPLib.AxWindowsMediaPlayer();
             this.sidePanel.SuspendLayout();
             this.settingsSubPanel.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -65,7 +66,8 @@
             this.CenterPanel.SuspendLayout();
             this.centerTable.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.videoPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.videoPlayerTop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.videoPlayerBottom)).BeginInit();
             this.SuspendLayout();
             // 
             // sidePanel
@@ -110,7 +112,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(163, 25);
             this.button2.TabIndex = 16;
-            this.button2.Text = "SELECT VIDEOS";
+            this.button2.Text = "VIDEO OPTIONS";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button2.UseVisualStyleBackColor = true;
@@ -353,30 +355,41 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.videoPlayer, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.videoPlayerTop, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.videoPlayerBottom, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(275, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(403, 395);
             this.tableLayoutPanel1.TabIndex = 6;
-            // 
-            // videoPlayer
-            // 
-            this.videoPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoPlayer.Enabled = true;
-            this.videoPlayer.Location = new System.Drawing.Point(3, 3);
-            this.videoPlayer.Name = "videoPlayer";
-            this.videoPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("videoPlayer.OcxState")));
-            this.videoPlayer.Size = new System.Drawing.Size(397, 231);
-            this.videoPlayer.TabIndex = 7;
             // 
             // ofdVideos
             // 
             this.ofdVideos.Filter = "MP4 files|*.mp4|MKV files|*.mkv";
             this.ofdVideos.Multiselect = true;
+            // 
+            // videoPlayerTop
+            // 
+            this.videoPlayerTop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoPlayerTop.Enabled = true;
+            this.videoPlayerTop.Location = new System.Drawing.Point(3, 3);
+            this.videoPlayerTop.Name = "videoPlayerTop";
+            this.videoPlayerTop.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("videoPlayerTop.OcxState")));
+            this.videoPlayerTop.Size = new System.Drawing.Size(397, 191);
+            this.videoPlayerTop.TabIndex = 7;
+            // 
+            // videoPlayerBottom
+            // 
+            this.videoPlayerBottom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.videoPlayerBottom.Enabled = true;
+            this.videoPlayerBottom.Location = new System.Drawing.Point(3, 200);
+            this.videoPlayerBottom.Name = "videoPlayerBottom";
+            this.videoPlayerBottom.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("videoPlayerBottom.OcxState")));
+            this.videoPlayerBottom.Size = new System.Drawing.Size(397, 192);
+            this.videoPlayerBottom.TabIndex = 8;
             // 
             // Main
             // 
@@ -407,7 +420,8 @@
             this.CenterPanel.ResumeLayout(false);
             this.centerTable.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.videoPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.videoPlayerTop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.videoPlayerBottom)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -437,9 +451,10 @@
         private System.Windows.Forms.TableLayoutPanel centerTable;
         private System.Windows.Forms.TableLayoutPanel numbersTable;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private AxWMPLib.AxWindowsMediaPlayer videoPlayer;
+        private AxWMPLib.AxWindowsMediaPlayer videoPlayerTop;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.OpenFileDialog ofdVideos;
+        private AxWMPLib.AxWindowsMediaPlayer videoPlayerBottom;
     }
 }
 

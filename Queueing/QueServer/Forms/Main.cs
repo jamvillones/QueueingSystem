@@ -23,22 +23,34 @@ namespace QueServer
 
         private void Main_Load(object sender, EventArgs e)
         {
-            videoPlayer.uiMode = "none";
-            videoPlayer.settings.setMode("loop", true);
+            InitVideo();
 
             populateTokens();
             backgroundWorker1.RunWorkerAsync();
             SpeechManager.OnSpeechPlaying += SpeechManager_OnSpeechPlaying;
         }
 
+        void InitVideo()
+        {
+            videoPlayerTop.uiMode = "none";
+            videoPlayerTop.settings.setMode("loop", true);
+            videoPlayerTop.settings.volume = settings.NormalVolume;
+
+            videoPlayerBottom.uiMode = "none";
+            videoPlayerBottom.settings.setMode("loop", true);
+            videoPlayerBottom.settings.volume = settings.BottomVolume;
+
+        }
+        Properties.Settings settings = Properties.Settings.Default;
+
         private void SpeechManager_OnSpeechPlaying(object sender, bool e)
         {
             //throw new NotImplementedException();
             if (e)
-                videoPlayer.settings.volume = 10;
+                videoPlayerTop.settings.volume = settings.TalkingVolume;
 
             else
-                videoPlayer.settings.volume = 100;
+                videoPlayerTop.settings.volume = settings.NormalVolume;
 
         }
 
@@ -55,6 +67,8 @@ namespace QueServer
 
                     if (counter.Ques.Any(x => x.Status == 0))
                     {
+                        token.Number = "--";
+                        token.Number = "--";
                         token.Number = "--";
                         return;
                     }
@@ -180,8 +194,12 @@ namespace QueServer
         {
             if (MessageBox.Show("Are you sure you want to quit this application?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
-            videoPlayer.Ctlcontrols.stop();
-            videoPlayer.Dispose();
+
+            videoPlayerTop.Ctlcontrols.stop();
+            videoPlayerTop.Dispose();
+
+            videoPlayerBottom.Ctlcontrols.stop();
+            videoPlayerBottom.Dispose();
 
             this.Close();
         }
@@ -204,11 +222,11 @@ namespace QueServer
             }
             if (e.Control && e.KeyCode == Keys.Right)
             {
-                videoPlayer.Ctlcontrols.next();
+                videoPlayerTop.Ctlcontrols.next();
             }
             if (e.Control && e.KeyCode == Keys.Left)
             {
-                videoPlayer.Ctlcontrols.previous();
+                videoPlayerTop.Ctlcontrols.previous();
             }
         }
 
@@ -225,30 +243,88 @@ namespace QueServer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (ofdVideos.ShowDialog() == DialogResult.OK)
-            {
-                if (videoPlayer.currentPlaylist != null)
-                {
-                    videoPlayer.currentPlaylist.clear();
-                }
-                WMPLib.IWMPPlaylist playlist = videoPlayer.playlistCollection.newPlaylist("myplaylist");
-                WMPLib.IWMPMedia media;
-                foreach (string file in ofdVideos.FileNames)
-                {
-                    media = videoPlayer.newMedia(file);
-                    playlist.appendItem(media);
-                }
+            //if (ofdVideos.ShowDialog() == DialogResult.OK)
+            //{
+            //    if (videoPlayerTop.currentPlaylist != null)
+            //    {
+            //        videoPlayerTop.currentPlaylist.clear();
+            //    }
+            //    WMPLib.IWMPPlaylist playlist = videoPlayerTop.playlistCollection.newPlaylist("myplaylist");
+            //    WMPLib.IWMPMedia media;
+            //    foreach (string file in ofdVideos.FileNames)
+            //    {
+            //        media = videoPlayerTop.newMedia(file);
+            //        playlist.appendItem(media);
+            //    }
 
-                videoPlayer.currentPlaylist = playlist;
-                videoPlayer.Ctlcontrols.play();
+            //    videoPlayerTop.currentPlaylist = playlist;
+            //    videoPlayerTop.Ctlcontrols.play();
+            //}
+            using (var v = new QueServer.Forms.VideoOptions())
+            {
+                v.OnBotVideoSelected += V_OnBotVideoSelected;
+                v.OnTopVideoSelected += V_OnTopVideoSelected;
+                v.OnTopVolumeChanged += V_OnTopVolumeChanged;
+                v.OnBotVolumeChanged += V_OnBotVolumeChanged;
+                v.ShowDialog();
             }
+        }
+
+        private void V_OnBotVolumeChanged(object sender, int e)
+        {
+            //throw new NotImplementedException();
+            videoPlayerBottom.settings.volume = e;
+        }
+
+        private void V_OnTopVolumeChanged(object sender, int e)
+        {
+            videoPlayerTop.settings.volume = e;
+        }
+
+        private void V_OnTopVideoSelected(object sender, string[] e)
+        {
+            //throw new NotImplementedException();
+            if (videoPlayerTop.currentPlaylist != null)
+            {
+                videoPlayerTop.currentPlaylist.clear();
+            }
+
+            WMPLib.IWMPPlaylist playlist = videoPlayerTop.playlistCollection.newPlaylist("myplaylist");
+            WMPLib.IWMPMedia media;
+            foreach (string file in e)
+            {
+                media = videoPlayerTop.newMedia(file);
+                playlist.appendItem(media);
+            }
+
+            videoPlayerTop.currentPlaylist = playlist;
+            videoPlayerTop.Ctlcontrols.play();
+        }
+
+        private void V_OnBotVideoSelected(object sender, string[] e)
+        {
+            if (videoPlayerBottom.currentPlaylist != null)
+            {
+                videoPlayerBottom.currentPlaylist.clear();
+            }
+
+            WMPLib.IWMPPlaylist playlist = videoPlayerBottom.playlistCollection.newPlaylist("myplaylist");
+            WMPLib.IWMPMedia media;
+            foreach (string file in e)
+            {
+                media = videoPlayerBottom.newMedia(file);
+                playlist.appendItem(media);
+            }
+
+            videoPlayerBottom.currentPlaylist = playlist;
+            videoPlayerBottom.Ctlcontrols.play();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want clear the number in Queue and reset all numbers to 1?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 return;
-            using(var q = new QueeuingEntities())
+            using (var q = new QueeuingEntities())
             {
                 foreach (var i in q.Transactions)
                     i.CurrentNumber = 0;
