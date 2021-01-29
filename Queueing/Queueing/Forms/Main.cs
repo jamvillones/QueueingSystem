@@ -102,5 +102,40 @@ namespace Queueing
         {
             timeLabel.Text = DateTime.Now.ToString("h:mm:ss tt  ddd  MMMM dd yyyy").ToUpper();
         }
+
+        private void Main_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                RefreshControls();
+            }
+        }
+        void RefreshControls()
+        {
+            var controls = flowLayoutPanel1.Controls.Cast<TicketToken>().ToArray();
+
+            flowLayoutPanel1.Controls.Clear();
+
+            using (var q = new QueeuingEntities())
+            {
+                foreach (var i in q.Transactions)
+                {
+                    var token = new TicketToken();
+                    token.Transaction = i.Name.ToUpper();
+
+                    foreach (var j in i.Counters)
+                    {
+                        token.Counters += "COUNTER " + j.CounterNumber + " ";
+                    }
+                    token.OnSelected += (X, Y) =>
+                    {
+                        ShowConfirmation(i.Id);
+                    };
+                    flowLayoutPanel1.Controls.Add(token);
+                }
+            }
+            foreach (var i in controls)
+                i.Dispose();
+        }
     }
 }
