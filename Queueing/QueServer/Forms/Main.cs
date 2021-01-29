@@ -337,5 +337,18 @@ namespace QueServer
             foreach (var i in token)
                 i.Number = "--";
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var controls = numbersTable.Controls.Cast<CounterToken>().ToArray();
+
+            numbersTable.Controls.Clear();
+            populateTokens();
+
+            for (int i = 0; i < controls.Length; i++)
+            {
+                controls[i].Dispose();
+            }
+        }
     }
 }

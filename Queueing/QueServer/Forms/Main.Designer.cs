@@ -54,9 +54,9 @@
             this.centerTable = new System.Windows.Forms.TableLayoutPanel();
             this.numbersTable = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.ofdVideos = new System.Windows.Forms.OpenFileDialog();
             this.videoPlayerTop = new AxWMPLib.AxWindowsMediaPlayer();
             this.videoPlayerBottom = new AxWMPLib.AxWindowsMediaPlayer();
+            this.ofdVideos = new System.Windows.Forms.OpenFileDialog();
             this.sidePanel.SuspendLayout();
             this.settingsSubPanel.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -134,6 +134,7 @@
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button7
             // 
@@ -366,11 +367,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(403, 395);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
-            // ofdVideos
-            // 
-            this.ofdVideos.Filter = "MP4 files|*.mp4|MKV files|*.mkv";
-            this.ofdVideos.Multiselect = true;
-            // 
             // videoPlayerTop
             // 
             this.videoPlayerTop.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -390,6 +386,11 @@
             this.videoPlayerBottom.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("videoPlayerBottom.OcxState")));
             this.videoPlayerBottom.Size = new System.Drawing.Size(397, 192);
             this.videoPlayerBottom.TabIndex = 8;
+            // 
+            // ofdVideos
+            // 
+            this.ofdVideos.Filter = "MP4 files|*.mp4|MKV files|*.mkv";
+            this.ofdVideos.Multiselect = true;
             // 
             // Main
             // 
