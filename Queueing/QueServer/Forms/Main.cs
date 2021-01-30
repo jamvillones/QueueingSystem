@@ -16,18 +16,11 @@ namespace QueServer
 {
     public partial class Main : Form
     {
+        Properties.Settings settings = Properties.Settings.Default;
+
         public Main()
         {
             InitializeComponent();
-        }
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-            InitVideo();
-
-            populateTokens();
-            backgroundWorker1.RunWorkerAsync();
-            SpeechManager.OnSpeechPlaying += SpeechManager_OnSpeechPlaying;
         }
 
         void InitVideo()
@@ -39,25 +32,16 @@ namespace QueServer
             videoPlayerBottom.uiMode = "none";
             videoPlayerBottom.settings.setMode("loop", true);
             videoPlayerBottom.settings.volume = settings.BottomVolume;
-
-        }
-        Properties.Settings settings = Properties.Settings.Default;
-
-        private void SpeechManager_OnSpeechPlaying(object sender, bool e)
-        {
-            //throw new NotImplementedException();
-            if (e)
-                videoPlayerTop.settings.volume = settings.TalkingVolume;
-
-            else
-                videoPlayerTop.settings.volume = settings.NormalVolume;
-
         }
 
+        /// <summary>
+        /// processes the messages relayed by clients
+        /// </summary>
+        /// <param name="n"></param>
         void processNotification(string n)
         {
             int nc;
-            //string number;
+
             if (int.TryParse(n, out nc))
             {
                 using (var q = new QueeuingEntities())
@@ -67,8 +51,6 @@ namespace QueServer
 
                     if (counter.Ques.Any(x => x.Status == 0))
                     {
-                        token.Number = "--";
-                        token.Number = "--";
                         token.Number = "--";
                         return;
                     }
@@ -82,29 +64,39 @@ namespace QueServer
             }
         }
 
+        /// <summary>
+        /// instantiates tokens for display
+        /// </summary>
         void populateTokens()
         {
             using (var q = new QueeuingEntities())
             {
-                //int counterCount = q.Counters.Count();
                 foreach (var i in q.Counters)
                 {
+                    ///creates the token
                     var token = new CounterToken();
                     token.Dock = DockStyle.Fill;
                     token.Counter = i.CounterNumber;
 
+                    ///finds the active number corresponding the current counter on the loop
                     var currentNumber = i.Ques.FirstOrDefault(x => x.Status == 1);
 
+                    ///if nothing found put __ for empty number
                     token.Number = currentNumber?.TicketCode ?? "--";
+                    ///then add to the table
                     numbersTable.Controls.Add(token);
                 }
             }
         }
 
+        /// <summary>
+        /// handles the process of accepting connections
+        /// </summary>
         void StartAcceptingConnections()
         {
             TcpListener server = null;
 
+            ///this gets the ipv4 address of this computer/server
             string localIp = null;
             var host = Dns.GetHostEntry(Dns.GetHostName());
             foreach (var ip in host.AddressList)
@@ -114,6 +106,7 @@ namespace QueServer
                     localIp = ip.ToString();
                 }
             }
+            ///end
 
             try
             {
@@ -175,19 +168,54 @@ namespace QueServer
             }
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        /// <summary>
+        /// refreshes controls to track changes 
+        /// </summary>
+        void refreshControls()
+        {
+            var controls = numbersTable.Controls.Cast<CounterToken>().ToArray();
+
+            numbersTable.Controls.Clear();
+            populateTokens();
+
+            for (int i = 0; i < controls.Length; i++)
+            {
+                controls[i].Dispose();
+            }
+        }
+
+        #region Control Callbacks
+        private void Main_Load(object sender, EventArgs e)
+        {
+            InitVideo();
+
+            populateTokens();
+            connectionWorker.RunWorkerAsync();
+            SpeechManager.OnSpeechPlaying += SpeechManager_OnSpeechPlaying;
+        }
+
+        /// <summary>
+        /// Callaback for when speech is activated.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SpeechManager_OnSpeechPlaying(object sender, bool e)
+        {
+            if (e)
+                videoPlayerTop.settings.volume = settings.TalkingVolume;
+
+            else
+                videoPlayerTop.settings.volume = settings.NormalVolume;
+        }
+
+        private void connectionWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             StartAcceptingConnections();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void clockTimer_Tick(object sender, EventArgs e)
         {
             label1.Text = DateTime.Now.ToString("h:mm:ss tt  ddd  MMMM dd yyyy").ToUpper();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //toolsSubmenu.Visible = !toolsSubmenu.Visible;
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
@@ -204,22 +232,8 @@ namespace QueServer
             this.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            openServerDefaults();
-        }
-
-        void openServerDefaults()
-        {
-
-        }
-
         private void Main_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Shift && e.KeyCode == Keys.I)
-            {
-                openServerDefaults();
-            }
             if (e.Control && e.KeyCode == Keys.Right)
             {
                 videoPlayerTop.Ctlcontrols.next();
@@ -233,33 +247,24 @@ namespace QueServer
         private void button10_Click(object sender, EventArgs e)
         {
             using (var t = new TransactionList())
+            {
+                t.OnChangesMade += T_OnChangesMade;
                 t.ShowDialog();
+            }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void T_OnChangesMade(object sender, EventArgs e)
+        {
+            refreshControls();
+        }
+
+        private void settingBtn_Click(object sender, EventArgs e)
         {
             settingsSubPanel.Visible = !settingsSubPanel.Visible;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void videoOptBtn_Click(object sender, EventArgs e)
         {
-            //if (ofdVideos.ShowDialog() == DialogResult.OK)
-            //{
-            //    if (videoPlayerTop.currentPlaylist != null)
-            //    {
-            //        videoPlayerTop.currentPlaylist.clear();
-            //    }
-            //    WMPLib.IWMPPlaylist playlist = videoPlayerTop.playlistCollection.newPlaylist("myplaylist");
-            //    WMPLib.IWMPMedia media;
-            //    foreach (string file in ofdVideos.FileNames)
-            //    {
-            //        media = videoPlayerTop.newMedia(file);
-            //        playlist.appendItem(media);
-            //    }
-
-            //    videoPlayerTop.currentPlaylist = playlist;
-            //    videoPlayerTop.Ctlcontrols.play();
-            //}
             using (var v = new QueServer.Forms.VideoOptions())
             {
                 v.OnBotVideoSelected += V_OnBotVideoSelected;
@@ -270,9 +275,31 @@ namespace QueServer
             }
         }
 
+        private void clearBtn_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want clear the number in Queue and reset all numbers to 1?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                return;
+            using (var q = new QueeuingEntities())
+            {
+                foreach (var i in q.Transactions)
+                    i.CurrentNumber = 0;
+
+                q.Ques.RemoveRange(q.Ques);
+                q.SaveChanges();
+            }
+
+            var token = numbersTable.Controls.Cast<CounterToken>();
+            foreach (var i in token)
+                i.Number = "--";
+        }
+
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            refreshControls();
+        }
+
         private void V_OnBotVolumeChanged(object sender, int e)
         {
-            //throw new NotImplementedException();
             videoPlayerBottom.settings.volume = e;
         }
 
@@ -283,7 +310,6 @@ namespace QueServer
 
         private void V_OnTopVideoSelected(object sender, string[] e)
         {
-            //throw new NotImplementedException();
             if (videoPlayerTop.currentPlaylist != null)
             {
                 videoPlayerTop.currentPlaylist.clear();
@@ -319,36 +345,6 @@ namespace QueServer
             videoPlayerBottom.currentPlaylist = playlist;
             videoPlayerBottom.Ctlcontrols.play();
         }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Are you sure you want clear the number in Queue and reset all numbers to 1?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
-                return;
-            using (var q = new QueeuingEntities())
-            {
-                foreach (var i in q.Transactions)
-                    i.CurrentNumber = 0;
-
-                q.Ques.RemoveRange(q.Ques);
-                q.SaveChanges();
-            }
-
-            var token = numbersTable.Controls.Cast<CounterToken>();
-            foreach (var i in token)
-                i.Number = "--";
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            var controls = numbersTable.Controls.Cast<CounterToken>().ToArray();
-
-            numbersTable.Controls.Clear();
-            populateTokens();
-
-            for (int i = 0; i < controls.Length; i++)
-            {
-                controls[i].Dispose();
-            }
-        }
+        #endregion
     }
 }

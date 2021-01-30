@@ -31,6 +31,7 @@ namespace Queueing
                 foreach (var i in q.Transactions)
                 {
                     var token = new TicketToken();
+                    token.Dock = DockStyle.Fill;
                     token.Transaction = i.Name.ToUpper();
 
                     foreach (var j in i.Counters)
@@ -41,9 +42,14 @@ namespace Queueing
                     {
                         ShowConfirmation(i.Id);
                     };
-                    flowLayoutPanel1.Controls.Add(token);
+                    //flowLayoutPanel1.Controls.Add(token);
+                    tableLayoutPanel1.Controls.Add(token);
                 }
             }
+        }
+        void AddControlsInTable(Control[] c)
+        {
+
         }
         void ShowConfirmation(int id)
         {
@@ -112,15 +118,16 @@ namespace Queueing
         }
         void RefreshControls()
         {
-            var controls = flowLayoutPanel1.Controls.Cast<TicketToken>().ToArray();
+            var controls = tableLayoutPanel1.Controls.Cast<TicketToken>().ToArray();
 
-            flowLayoutPanel1.Controls.Clear();
+            tableLayoutPanel1.Controls.Clear();
 
             using (var q = new QueeuingEntities())
             {
                 foreach (var i in q.Transactions)
                 {
                     var token = new TicketToken();
+                    token.Dock = DockStyle.Fill;
                     token.Transaction = i.Name.ToUpper();
 
                     foreach (var j in i.Counters)
@@ -131,7 +138,7 @@ namespace Queueing
                     {
                         ShowConfirmation(i.Id);
                     };
-                    flowLayoutPanel1.Controls.Add(token);
+                    tableLayoutPanel1.Controls.Add(token);
                 }
             }
             foreach (var i in controls)

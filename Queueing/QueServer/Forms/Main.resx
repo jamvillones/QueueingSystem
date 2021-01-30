@@ -1472,24 +1472,26 @@
         3fvim+/GYfr0eQgLj8be/UdRVFSur+oe/k/+WYHi/wG08P9VtBkI0wAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="connectionWorker.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="exitBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAapJREFUOE+d
-        k91KlFEUhkfy3GLQAc8zDAfSa1HEfkjwHkpR/D3yIhxUUCKCIPAgxVM9qKkuoA4U//ACtBNdPu9ea4tf
-        jTNTDzyw97vWXvPNN7NLrTCzJ/gLf2JfxP8PQxYxsxBxe3DgNZ7jm4iULWNmOWLlb1G9ryIqQmECr1C8
-        i7jZwPcepTPjETsEek+/VYUf2BOlZgMfYT2lZpf4OEqpuJtis2MsR5xg33CgYF/Gk1Qx285hv+8TIym8
-        A9m9AwXZqJcSfQqWfJ0+6UH03ULWamAnnqWq2byCj7621egpQN50oCBf97J90Oarr5neAPIpLycmIy5A
-        vuBl+6LNd1/bbNQLkD/EGq5gV8QFyOdR1LXZ8rXVov7PcHbNR9gnbeZ8bUfYET1tozOY/zozCp75OjEc
-        fW3Dmbt/m2oOP/veDrCSwjagtxsPdRC2Ik6FKur6iG/YG6V7oaeC+zoAF/g0Sg7BC7xWFXQFx/Cvd6oM
-        X2J+b+J5lItQ0ND8pOIUN1A/nNzEfCuEnqzxsAwN+vo76m7BNg7EsdbQPIQzqKu5F2o9jYPR9gel0g3j
-        2c7YZ1p2SQAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAFaSURBVEhL7ZZLS8NAFIWzVhAEwd+hrloQtboRHyv//86Fgkp9oav4HTgXQpO0mWQGN/3g0GHu
+        ufd0QpK22vKv1HW95+VkBs/CeIc+9Omt0TDj3rNuvdUNhl30jMQXWriUDL2X6FuD4AntuNQNhhlayg2/
+        KPnk6nGv0KyZS+uR0Q0iKVxe94jhoQENJ+hV3TAoXB57RXpoQONqeO9NQi1PaMCAjeHs5Q0NGNQbzrpM
+        aMDAVjgqGxow+BTphSA+kZ51ofW5bWUgoBkuyocKQpqXV/ygG5fLQMACNS9v87Kf2ZYXBrduJHSMXrQB
+        +U/OwN67l3WZcAZtfGTYyxvOgNXQuUstqB2hCNfP4ZVLadCoF8Sg0ADPtHAakkMDvOPCMY4ODehJC8dw
+        gN7lBj2vFy4lQ+8c6YuLN7TvUjcYHpB+DJJPugozdPJHdO2t9WA89HIyzMr2V3nLCKrqD9rT6Zk0hFok
+        AAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>181, 17</value>
+  </metadata>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>268, 17</value>
   </metadata>
   <data name="videoPlayerTop.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>

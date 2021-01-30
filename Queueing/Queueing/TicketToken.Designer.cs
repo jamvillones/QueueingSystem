@@ -37,6 +37,7 @@
             // 
             this.transactionName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.transactionName.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transactionName.ForeColor = System.Drawing.Color.Black;
             this.transactionName.Location = new System.Drawing.Point(26, 22);
             this.transactionName.Name = "transactionName";
             this.transactionName.Size = new System.Drawing.Size(330, 97);
@@ -57,6 +58,7 @@
             // 
             this.counterLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.counterLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.counterLabel.ForeColor = System.Drawing.Color.Black;
             this.counterLabel.Location = new System.Drawing.Point(26, 127);
             this.counterLabel.Name = "counterLabel";
             this.counterLabel.Size = new System.Drawing.Size(330, 51);
@@ -67,7 +69,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(205)))), ((int)(((byte)(244)))));
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.counterLabel);
             this.Controls.Add(this.divider);

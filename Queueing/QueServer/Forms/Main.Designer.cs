@@ -32,17 +32,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.sidePanel = new System.Windows.Forms.Panel();
             this.settingsSubPanel = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.videoOptBtn = new System.Windows.Forms.Button();
+            this.refreshBtn = new System.Windows.Forms.Button();
+            this.clearBtn = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.settingBtn = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Title = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.connectionWorker = new System.ComponentModel.BackgroundWorker();
             this.topPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.exitBtn = new System.Windows.Forms.Button();
@@ -74,7 +74,7 @@
             // 
             this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.sidePanel.Controls.Add(this.settingsSubPanel);
-            this.sidePanel.Controls.Add(this.button1);
+            this.sidePanel.Controls.Add(this.settingBtn);
             this.sidePanel.Controls.Add(this.panel6);
             this.sidePanel.Controls.Add(this.panel5);
             this.sidePanel.Controls.Add(this.Title);
@@ -89,9 +89,9 @@
             // 
             this.settingsSubPanel.AutoSize = true;
             this.settingsSubPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.settingsSubPanel.Controls.Add(this.button2);
-            this.settingsSubPanel.Controls.Add(this.button4);
-            this.settingsSubPanel.Controls.Add(this.button7);
+            this.settingsSubPanel.Controls.Add(this.videoOptBtn);
+            this.settingsSubPanel.Controls.Add(this.refreshBtn);
+            this.settingsSubPanel.Controls.Add(this.clearBtn);
             this.settingsSubPanel.Controls.Add(this.button10);
             this.settingsSubPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.settingsSubPanel.Location = new System.Drawing.Point(0, 325);
@@ -100,60 +100,60 @@
             this.settingsSubPanel.TabIndex = 9;
             this.settingsSubPanel.Visible = false;
             // 
-            // button2
+            // videoOptBtn
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 75);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(163, 25);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "VIDEO OPTIONS";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.videoOptBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.videoOptBtn.FlatAppearance.BorderSize = 0;
+            this.videoOptBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.videoOptBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.videoOptBtn.ForeColor = System.Drawing.Color.White;
+            this.videoOptBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.videoOptBtn.Location = new System.Drawing.Point(0, 75);
+            this.videoOptBtn.Name = "videoOptBtn";
+            this.videoOptBtn.Size = new System.Drawing.Size(163, 25);
+            this.videoOptBtn.TabIndex = 16;
+            this.videoOptBtn.Text = "VIDEO OPTIONS";
+            this.videoOptBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.videoOptBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.videoOptBtn.UseVisualStyleBackColor = true;
+            this.videoOptBtn.Click += new System.EventHandler(this.videoOptBtn_Click);
             // 
-            // button4
+            // refreshBtn
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(0, 50);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(163, 25);
-            this.button4.TabIndex = 14;
-            this.button4.Text = " REFRESH";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.refreshBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.refreshBtn.FlatAppearance.BorderSize = 0;
+            this.refreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshBtn.ForeColor = System.Drawing.Color.White;
+            this.refreshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.refreshBtn.Location = new System.Drawing.Point(0, 50);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(163, 25);
+            this.refreshBtn.TabIndex = 14;
+            this.refreshBtn.Text = " REFRESH";
+            this.refreshBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.refreshBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.refreshBtn.UseVisualStyleBackColor = true;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
-            // button7
+            // clearBtn
             // 
-            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(0, 25);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(163, 25);
-            this.button7.TabIndex = 15;
-            this.button7.Text = " RESET NUMBERS";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.toolTip1.SetToolTip(this.button7, "Resets all numbers back to 0");
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.clearBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.clearBtn.FlatAppearance.BorderSize = 0;
+            this.clearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearBtn.ForeColor = System.Drawing.Color.White;
+            this.clearBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.clearBtn.Location = new System.Drawing.Point(0, 25);
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(163, 25);
+            this.clearBtn.TabIndex = 15;
+            this.clearBtn.Text = " RESET NUMBERS";
+            this.clearBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.clearBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip1.SetToolTip(this.clearBtn, "Resets all numbers back to 0");
+            this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
             // button10
             // 
@@ -173,22 +173,22 @@
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // button1
+            // settingBtn
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 425);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 25);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "SETTINGS";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.settingBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.settingBtn.FlatAppearance.BorderSize = 0;
+            this.settingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingBtn.ForeColor = System.Drawing.Color.White;
+            this.settingBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.settingBtn.Location = new System.Drawing.Point(0, 425);
+            this.settingBtn.Name = "settingBtn";
+            this.settingBtn.Size = new System.Drawing.Size(163, 25);
+            this.settingBtn.TabIndex = 8;
+            this.settingBtn.Text = "SETTINGS";
+            this.settingBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.settingBtn.UseVisualStyleBackColor = true;
+            this.settingBtn.Click += new System.EventHandler(this.settingBtn_Click);
             // 
             // panel6
             // 
@@ -241,9 +241,9 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // backgroundWorker1
+            // connectionWorker
             // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.connectionWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.connectionWorker_DoWork);
             // 
             // topPanel
             // 
@@ -254,7 +254,7 @@
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(163, 0);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(681, 29);
+            this.topPanel.Size = new System.Drawing.Size(681, 30);
             this.topPanel.TabIndex = 2;
             // 
             // label2
@@ -264,7 +264,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(653, 27);
+            this.label2.Size = new System.Drawing.Size(651, 28);
             this.label2.TabIndex = 2;
             this.label2.Text = "MUNICIPALITY OF KALIBO";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -275,9 +275,9 @@
             this.exitBtn.FlatAppearance.BorderSize = 0;
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Image = ((System.Drawing.Image)(resources.GetObject("exitBtn.Image")));
-            this.exitBtn.Location = new System.Drawing.Point(653, 0);
+            this.exitBtn.Location = new System.Drawing.Point(651, 0);
             this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(26, 27);
+            this.exitBtn.Size = new System.Drawing.Size(28, 28);
             this.exitBtn.TabIndex = 0;
             this.exitBtn.TabStop = false;
             this.exitBtn.UseVisualStyleBackColor = true;
@@ -308,15 +308,15 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Tick += new System.EventHandler(this.clockTimer_Tick);
             // 
             // CenterPanel
             // 
             this.CenterPanel.Controls.Add(this.centerTable);
             this.CenterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CenterPanel.Location = new System.Drawing.Point(163, 29);
+            this.CenterPanel.Location = new System.Drawing.Point(163, 30);
             this.CenterPanel.Name = "CenterPanel";
-            this.CenterPanel.Size = new System.Drawing.Size(681, 401);
+            this.CenterPanel.Size = new System.Drawing.Size(681, 400);
             this.CenterPanel.TabIndex = 5;
             // 
             // centerTable
@@ -331,7 +331,7 @@
             this.centerTable.Name = "centerTable";
             this.centerTable.RowCount = 1;
             this.centerTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.centerTable.Size = new System.Drawing.Size(681, 401);
+            this.centerTable.Size = new System.Drawing.Size(681, 400);
             this.centerTable.TabIndex = 0;
             // 
             // numbersTable
@@ -349,7 +349,7 @@
             this.numbersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.numbersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.numbersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.numbersTable.Size = new System.Drawing.Size(266, 395);
+            this.numbersTable.Size = new System.Drawing.Size(266, 394);
             this.numbersTable.TabIndex = 5;
             // 
             // tableLayoutPanel1
@@ -364,7 +364,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(403, 395);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(403, 394);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // videoPlayerTop
@@ -384,7 +384,7 @@
             this.videoPlayerBottom.Location = new System.Drawing.Point(3, 200);
             this.videoPlayerBottom.Name = "videoPlayerBottom";
             this.videoPlayerBottom.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("videoPlayerBottom.OcxState")));
-            this.videoPlayerBottom.Size = new System.Drawing.Size(397, 192);
+            this.videoPlayerBottom.Size = new System.Drawing.Size(397, 191);
             this.videoPlayerBottom.TabIndex = 8;
             // 
             // ofdVideos
@@ -430,7 +430,7 @@
         #endregion
 
         private System.Windows.Forms.Panel sidePanel;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker connectionWorker;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Panel panel3;
@@ -443,17 +443,17 @@
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button settingBtn;
         private System.Windows.Forms.Panel settingsSubPanel;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button refreshBtn;
+        private System.Windows.Forms.Button clearBtn;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Panel CenterPanel;
         private System.Windows.Forms.TableLayoutPanel centerTable;
         private System.Windows.Forms.TableLayoutPanel numbersTable;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private AxWMPLib.AxWindowsMediaPlayer videoPlayerTop;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button videoOptBtn;
         private System.Windows.Forms.OpenFileDialog ofdVideos;
         private AxWMPLib.AxWindowsMediaPlayer videoPlayerBottom;
     }
