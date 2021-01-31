@@ -2,16 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="QueServer.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="SidePanelVisibility" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="ServerIp" Type="System.String" Scope="User">
-      <Value Profile="(Default)">192.168.254.146</Value>
-    </Setting>
-    <Setting Name="VideosFolderPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Videos\</Value>
-    </Setting>
-    <Setting Name="NormalVolume" Type="System.Int32" Scope="User">
+    <Setting Name="TopVolume" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="TalkingVolume" Type="System.Int32" Scope="User">

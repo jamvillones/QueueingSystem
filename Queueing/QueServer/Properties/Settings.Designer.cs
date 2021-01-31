@@ -25,49 +25,13 @@ namespace QueServer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool SidePanelVisibility {
-            get {
-                return ((bool)(this["SidePanelVisibility"]));
-            }
-            set {
-                this["SidePanelVisibility"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.254.146")]
-        public string ServerIp {
-            get {
-                return ((string)(this["ServerIp"]));
-            }
-            set {
-                this["ServerIp"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Videos\\")]
-        public string VideosFolderPath {
-            get {
-                return ((string)(this["VideosFolderPath"]));
-            }
-            set {
-                this["VideosFolderPath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100")]
-        public int NormalVolume {
+        public int TopVolume {
             get {
-                return ((int)(this["NormalVolume"]));
+                return ((int)(this["TopVolume"]));
             }
             set {
-                this["NormalVolume"] = value;
+                this["TopVolume"] = value;
             }
         }
         

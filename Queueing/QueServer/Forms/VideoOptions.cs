@@ -58,6 +58,16 @@ namespace QueServer.Forms
         {
             var v = sender as TrackBar;
             currentPlayer.settings.volume = v.Value;
+
+            if(playerList.SelectedIndex == 0)
+            {
+                settings.TopVolume = v.Value;
+            }
+            else
+            {
+                settings.BottomVolume = v.Value;
+            }
+            settings.Save();
         }
 
         private void selectVideosBtn_Click(object sender, EventArgs e)

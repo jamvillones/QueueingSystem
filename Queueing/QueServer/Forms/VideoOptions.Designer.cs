@@ -31,18 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoOptions));
             this.dialog = new System.Windows.Forms.OpenFileDialog();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.speechVol = new System.Windows.Forms.TrackBar();
+            this.label5 = new System.Windows.Forms.Label();
+            this.normalVol = new System.Windows.Forms.TrackBar();
+            this.label6 = new System.Windows.Forms.Label();
             this.playerList = new System.Windows.Forms.ComboBox();
             this.mediaPlayerButtons3 = new QueServer.MediaPlayerButtons();
             this.selectVideosBtn = new System.Windows.Forms.Button();
-            this.normalVol = new System.Windows.Forms.TrackBar();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.speechVol)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.normalVol)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dialog
@@ -63,24 +63,18 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Media Controls";
             // 
-            // label6
+            // panel1
             // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(197, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Media Playing Volume";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label5.Location = new System.Drawing.Point(0, 58);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "On Speech Volume";
+            this.panel1.AutoSize = true;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.speechVol);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.normalVol);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Location = new System.Drawing.Point(7, 46);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(199, 118);
+            this.panel1.TabIndex = 4;
             // 
             // speechVol
             // 
@@ -93,6 +87,37 @@
             this.speechVol.TickStyle = System.Windows.Forms.TickStyle.None;
             this.speechVol.Value = 100;
             this.speechVol.Scroll += new System.EventHandler(this.speechVol_Scroll);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label5.Location = new System.Drawing.Point(0, 58);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(99, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "On Speech Volume";
+            // 
+            // normalVol
+            // 
+            this.normalVol.Dock = System.Windows.Forms.DockStyle.Top;
+            this.normalVol.Location = new System.Drawing.Point(0, 13);
+            this.normalVol.Maximum = 100;
+            this.normalVol.Name = "normalVol";
+            this.normalVol.Size = new System.Drawing.Size(197, 45);
+            this.normalVol.TabIndex = 0;
+            this.normalVol.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.normalVol.Value = 100;
+            this.normalVol.Scroll += new System.EventHandler(this.normalVol_Scroll);
+            // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(197, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Media Playing Volume";
             // 
             // playerList
             // 
@@ -125,31 +150,6 @@
             this.selectVideosBtn.UseVisualStyleBackColor = false;
             this.selectVideosBtn.Click += new System.EventHandler(this.selectVideosBtn_Click);
             // 
-            // normalVol
-            // 
-            this.normalVol.Dock = System.Windows.Forms.DockStyle.Top;
-            this.normalVol.Location = new System.Drawing.Point(0, 13);
-            this.normalVol.Maximum = 100;
-            this.normalVol.Name = "normalVol";
-            this.normalVol.Size = new System.Drawing.Size(197, 45);
-            this.normalVol.TabIndex = 0;
-            this.normalVol.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.normalVol.Value = 100;
-            this.normalVol.Scroll += new System.EventHandler(this.normalVol_Scroll);
-            // 
-            // panel1
-            // 
-            this.panel1.AutoSize = true;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.speechVol);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.normalVol);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(7, 46);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(199, 118);
-            this.panel1.TabIndex = 4;
-            // 
             // VideoOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,10 +166,10 @@
             this.Load += new System.EventHandler(this.VideoOptions_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.speechVol)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.normalVol)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.speechVol)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.normalVol)).EndInit();
             this.ResumeLayout(false);
 
         }

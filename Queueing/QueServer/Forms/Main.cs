@@ -28,11 +28,11 @@ namespace QueServer
         {
             MediaPlayerTop.uiMode = "none";
             MediaPlayerTop.settings.setMode("loop", true);
-            //MediaPlayerTop.settings.volume = settings.NormalVolume;
+            MediaPlayerTop.settings.volume = settings.TopVolume;
 
             MediaPlayerBottom.uiMode = "none";
             MediaPlayerBottom.settings.setMode("loop", true);
-            //MediaPlayerBottom.settings.volume = settings.BottomVolume;
+            MediaPlayerBottom.settings.volume = settings.BottomVolume;
         }
 
         /// <summary>
@@ -107,6 +107,7 @@ namespace QueServer
                     localIp = ip.ToString();
                 }
             }
+            Console.WriteLine(localIp);
             ///end
 
             try
@@ -202,11 +203,24 @@ namespace QueServer
         /// <param name="e"></param>
         private void SpeechManager_OnSpeechPlaying(object sender, bool e)
         {
-            if (e)
-                MediaPlayerTop.settings.volume = settings.TalkingVolume;
-
-            else
-                MediaPlayerTop.settings.volume = settings.NormalVolume;
+            adjustMediaVolumeWhenBroadcasting(e, MediaPlayerTop, MediaPlayerBottom);
+        }
+        void adjustMediaVolumeWhenBroadcasting(bool playing, params AxWMPLib.AxWindowsMediaPlayer[] players)
+        {
+            for (int i = 0; i < players.Length; i++)
+            {
+                if (playing)
+                {
+                    players[i].settings.volume = (int)((float)players[i].settings.volume * ((float)settings.TalkingVolume / 100));
+                }
+                else
+                {
+                    if (i == 0)
+                        players[0].settings.volume = settings.TopVolume;
+                    else if (i == 1)
+                        players[1].settings.volume = settings.BottomVolume;
+                }
+            }
         }
 
         private void connectionWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -243,6 +257,10 @@ namespace QueServer
             {
                 MediaPlayerTop.Ctlcontrols.previous();
             }
+            if (e.Control && e.Shift && e.KeyCode == Keys.V)
+            {
+                OpenVideoOption();
+            }
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -265,6 +283,10 @@ namespace QueServer
         }
 
         private void videoOptBtn_Click(object sender, EventArgs e)
+        {
+            OpenVideoOption();
+        }
+        void OpenVideoOption()
         {
             using (var v = new VideoOptions(MediaPlayerTop, MediaPlayerBottom))
                 v.ShowDialog();
