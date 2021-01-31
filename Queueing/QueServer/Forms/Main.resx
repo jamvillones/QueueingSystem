@@ -1477,23 +1477,19 @@
   </metadata>
   <data name="exitBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAFaSURBVEhL7ZZLS8NAFIWzVhAEwd+hrloQtboRHyv//86Fgkp9oav4HTgXQpO0mWQGN/3g0GHu
-        ufd0QpK22vKv1HW95+VkBs/CeIc+9Omt0TDj3rNuvdUNhl30jMQXWriUDL2X6FuD4AntuNQNhhlayg2/
-        KPnk6nGv0KyZS+uR0Q0iKVxe94jhoQENJ+hV3TAoXB57RXpoQONqeO9NQi1PaMCAjeHs5Q0NGNQbzrpM
-        aMDAVjgqGxow+BTphSA+kZ51ofW5bWUgoBkuyocKQpqXV/ygG5fLQMACNS9v87Kf2ZYXBrduJHSMXrQB
-        +U/OwN67l3WZcAZtfGTYyxvOgNXQuUstqB2hCNfP4ZVLadCoF8Sg0ADPtHAakkMDvOPCMY4ODehJC8dw
-        gN7lBj2vFy4lQ+8c6YuLN7TvUjcYHpB+DJJPugozdPJHdO2t9WA89HIyzMr2V3nLCKrqD9rT6Zk0hFok
-        AAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAVpJREFUSEvt
+        lktLw0AUhbNWEATB36GuWhC1uhEfK///zoWCSn2hq/gdOBdCk7SZZAY3/eDQYe6593RCkrba8q/Udb3n
+        5WQGz8J4hz706a3RMOPes2691Q2GXfSMxBdauJQMvZfoW4PgCe241A2GGVrKDb8o+eTqca/QrJlL65HR
+        DSIpXF73iOGhAQ0n6FXdMChcHntFemhA42p4701CLU9owICN4ezlDQ0Y1BvOukxowMBWOCobGjD4FOmF
+        ID6RnnWh9bltZSCgGS7KhwpCmpdX/KAbl8tAwAI1L2/zsp/ZlhcGt24kdIxetAH5T87A3ruXdZlwBm18
+        ZNjLG86A1dC5Sy2oHaEI18/hlUtp0KgXxKDQAM+0cBqSQwO848Ixjg4N6EkLx3CA3uUGPa8XLiVD7xzp
+        i4s3tO9SNxgekH4Mkk+6CjN08kd07a31YDz0cjLMyvZXecsIquoP2tPpmTSEWiQAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>181, 17</value>
   </metadata>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>268, 17</value>
-  </metadata>
-  <data name="videoPlayerTop.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="MediaPlayerTop.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
@@ -1504,7 +1500,7 @@
         AAAL
 </value>
   </data>
-  <data name="videoPlayerBottom.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="MediaPlayerBottom.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0

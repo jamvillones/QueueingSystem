@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Speech.Synthesis;
 using QueDatabaseModel;
+using QueServer.Forms;
 
 namespace QueServer
 {
@@ -25,13 +26,13 @@ namespace QueServer
 
         void InitVideo()
         {
-            videoPlayerTop.uiMode = "none";
-            videoPlayerTop.settings.setMode("loop", true);
-            videoPlayerTop.settings.volume = settings.NormalVolume;
+            MediaPlayerTop.uiMode = "none";
+            MediaPlayerTop.settings.setMode("loop", true);
+            //MediaPlayerTop.settings.volume = settings.NormalVolume;
 
-            videoPlayerBottom.uiMode = "none";
-            videoPlayerBottom.settings.setMode("loop", true);
-            videoPlayerBottom.settings.volume = settings.BottomVolume;
+            MediaPlayerBottom.uiMode = "none";
+            MediaPlayerBottom.settings.setMode("loop", true);
+            //MediaPlayerBottom.settings.volume = settings.BottomVolume;
         }
 
         /// <summary>
@@ -202,10 +203,10 @@ namespace QueServer
         private void SpeechManager_OnSpeechPlaying(object sender, bool e)
         {
             if (e)
-                videoPlayerTop.settings.volume = settings.TalkingVolume;
+                MediaPlayerTop.settings.volume = settings.TalkingVolume;
 
             else
-                videoPlayerTop.settings.volume = settings.NormalVolume;
+                MediaPlayerTop.settings.volume = settings.NormalVolume;
         }
 
         private void connectionWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -223,11 +224,11 @@ namespace QueServer
             if (MessageBox.Show("Are you sure you want to quit this application?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
-            videoPlayerTop.Ctlcontrols.stop();
-            videoPlayerTop.Dispose();
+            MediaPlayerTop.Ctlcontrols.stop();
+            MediaPlayerTop.Dispose();
 
-            videoPlayerBottom.Ctlcontrols.stop();
-            videoPlayerBottom.Dispose();
+            MediaPlayerBottom.Ctlcontrols.stop();
+            MediaPlayerBottom.Dispose();
 
             this.Close();
         }
@@ -236,11 +237,11 @@ namespace QueServer
         {
             if (e.Control && e.KeyCode == Keys.Right)
             {
-                videoPlayerTop.Ctlcontrols.next();
+                MediaPlayerTop.Ctlcontrols.next();
             }
             if (e.Control && e.KeyCode == Keys.Left)
             {
-                videoPlayerTop.Ctlcontrols.previous();
+                MediaPlayerTop.Ctlcontrols.previous();
             }
         }
 
@@ -265,14 +266,8 @@ namespace QueServer
 
         private void videoOptBtn_Click(object sender, EventArgs e)
         {
-            using (var v = new QueServer.Forms.VideoOptions())
-            {
-                v.OnBotVideoSelected += V_OnBotVideoSelected;
-                v.OnTopVideoSelected += V_OnTopVideoSelected;
-                v.OnTopVolumeChanged += V_OnTopVolumeChanged;
-                v.OnBotVolumeChanged += V_OnBotVolumeChanged;
+            using (var v = new VideoOptions(MediaPlayerTop, MediaPlayerBottom))
                 v.ShowDialog();
-            }
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
@@ -296,54 +291,6 @@ namespace QueServer
         private void refreshBtn_Click(object sender, EventArgs e)
         {
             refreshControls();
-        }
-
-        private void V_OnBotVolumeChanged(object sender, int e)
-        {
-            videoPlayerBottom.settings.volume = e;
-        }
-
-        private void V_OnTopVolumeChanged(object sender, int e)
-        {
-            videoPlayerTop.settings.volume = e;
-        }
-
-        private void V_OnTopVideoSelected(object sender, string[] e)
-        {
-            if (videoPlayerTop.currentPlaylist != null)
-            {
-                videoPlayerTop.currentPlaylist.clear();
-            }
-
-            WMPLib.IWMPPlaylist playlist = videoPlayerTop.playlistCollection.newPlaylist("myplaylist");
-            WMPLib.IWMPMedia media;
-            foreach (string file in e)
-            {
-                media = videoPlayerTop.newMedia(file);
-                playlist.appendItem(media);
-            }
-
-            videoPlayerTop.currentPlaylist = playlist;
-            videoPlayerTop.Ctlcontrols.play();
-        }
-
-        private void V_OnBotVideoSelected(object sender, string[] e)
-        {
-            if (videoPlayerBottom.currentPlaylist != null)
-            {
-                videoPlayerBottom.currentPlaylist.clear();
-            }
-
-            WMPLib.IWMPPlaylist playlist = videoPlayerBottom.playlistCollection.newPlaylist("myplaylist");
-            WMPLib.IWMPMedia media;
-            foreach (string file in e)
-            {
-                media = videoPlayerBottom.newMedia(file);
-                playlist.appendItem(media);
-            }
-
-            videoPlayerBottom.currentPlaylist = playlist;
-            videoPlayerBottom.Ctlcontrols.play();
         }
         #endregion
     }
