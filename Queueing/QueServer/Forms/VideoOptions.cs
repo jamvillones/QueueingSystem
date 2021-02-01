@@ -45,6 +45,11 @@ namespace QueServer.Forms
         private void playerList_SelectedIndexChanged(object sender, EventArgs e)
         {
             normalVol.Value = currentPlayer.settings.volume;
+            //if (currentPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            //    mediaPlayerButtons3.IsPlaying = true;
+
+            //else if (currentPlayer.playState == WMPLib.WMPPlayState.wmppsStopped)
+            //    mediaPlayerButtons3.IsPlaying = false;
         }
 
         private void speechVol_Scroll(object sender, EventArgs e)
@@ -59,7 +64,7 @@ namespace QueServer.Forms
             var v = sender as TrackBar;
             currentPlayer.settings.volume = v.Value;
 
-            if(playerList.SelectedIndex == 0)
+            if (playerList.SelectedIndex == 0)
             {
                 settings.TopVolume = v.Value;
             }
@@ -93,10 +98,15 @@ namespace QueServer.Forms
 
         private void mediaPlayerButtons_OnCommandIssued(object sender, MediaPlayerButtons.MediaCommandTypes e)
         {
+            var c = sender as MediaPlayerButtons;
+
             switch (e)
             {
                 case MediaPlayerButtons.MediaCommandTypes.play:
-                    currentPlayer.Ctlcontrols.play();
+                    if (currentPlayer.playState == WMPLib.WMPPlayState.wmppsPaused || currentPlayer.playState == WMPLib.WMPPlayState.wmppsStopped)
+                        currentPlayer.Ctlcontrols.play();
+                    else if (currentPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
+                        currentPlayer.Ctlcontrols.pause();
                     break;
                 case MediaPlayerButtons.MediaCommandTypes.previous:
                     currentPlayer.Ctlcontrols.previous();

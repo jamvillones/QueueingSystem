@@ -132,6 +132,7 @@
             // mediaPlayerButtons3
             // 
             this.mediaPlayerButtons3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mediaPlayerButtons3.IsPlaying = true;
             this.mediaPlayerButtons3.Location = new System.Drawing.Point(7, 170);
             this.mediaPlayerButtons3.Name = "mediaPlayerButtons3";
             this.mediaPlayerButtons3.Size = new System.Drawing.Size(199, 44);
@@ -146,7 +147,7 @@
             this.selectVideosBtn.Name = "selectVideosBtn";
             this.selectVideosBtn.Size = new System.Drawing.Size(199, 28);
             this.selectVideosBtn.TabIndex = 3;
-            this.selectVideosBtn.Text = "Select Videos";
+            this.selectVideosBtn.Text = "Select Media";
             this.selectVideosBtn.UseVisualStyleBackColor = false;
             this.selectVideosBtn.Click += new System.EventHandler(this.selectVideosBtn_Click);
             // 

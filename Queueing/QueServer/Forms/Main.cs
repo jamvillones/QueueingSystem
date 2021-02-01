@@ -72,7 +72,7 @@ namespace QueServer
         {
             using (var q = new QueeuingEntities())
             {
-                foreach (var i in q.Counters)
+                foreach (var i in q.Counters.OrderBy(x=>x.CounterNumber))
                 {
                     ///creates the token
                     var token = new CounterToken();
