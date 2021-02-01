@@ -45,11 +45,14 @@ namespace QueServer.Forms
         private void playerList_SelectedIndexChanged(object sender, EventArgs e)
         {
             normalVol.Value = currentPlayer.settings.volume;
-            //if (currentPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
-            //    mediaPlayerButtons3.IsPlaying = true;
+            setupPlayList(currentPlayer);
+        }
 
-            //else if (currentPlayer.playState == WMPLib.WMPPlayState.wmppsStopped)
-            //    mediaPlayerButtons3.IsPlaying = false;
+        void setupPlayList(AxWindowsMediaPlayer p)
+        {
+            mediaList.Rows.Clear();
+            for (int i = 0; i < p.currentPlaylist.count; i++)
+                mediaList.Rows.Add(p.currentPlaylist.Item[i].name);
         }
 
         private void speechVol_Scroll(object sender, EventArgs e)
@@ -79,19 +82,15 @@ namespace QueServer.Forms
         {
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                if (currentPlayer.currentPlaylist != null)
-                    currentPlayer.currentPlaylist.clear();
+                currentPlayer.currentPlaylist.clear();
 
-                WMPLib.IWMPPlaylist playlist = currentPlayer.playlistCollection.newPlaylist("myplaylist");
-                WMPLib.IWMPMedia media;
+                WMPLib.IWMPPlaylist playlist = currentPlayer.currentPlaylist;
 
-                foreach (string file in dialog.FileNames)
-                {
-                    media = currentPlayer.newMedia(file);
-                    playlist.appendItem(media);
-                }
+                foreach (string fileName in dialog.FileNames)
+                    playlist.appendItem(currentPlayer.newMedia(fileName));
 
-                currentPlayer.currentPlaylist = playlist;
+                setupPlayList(currentPlayer);
+
                 currentPlayer.Ctlcontrols.play();
             }
         }
@@ -120,6 +119,14 @@ namespace QueServer.Forms
                 default:
                     break;
             }
+        }
+
+        private void mediaList_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (mediaList.RowCount == 0)
+                return;
+
+            currentPlayer.Ctlcontrols.playItem(currentPlayer.currentPlaylist.Item[mediaList.SelectedCells[0].RowIndex]);
         }
     }
 }

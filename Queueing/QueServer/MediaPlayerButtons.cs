@@ -19,26 +19,26 @@ namespace QueServer
         {
             InitializeComponent();
         }
-        bool isPlaying = true;
-        public bool IsPlaying
-        {
-            get
-            {
-                return isPlaying;
-            }
-            set
-            {
-                isPlaying = value;
-                if (isPlaying)
-                {
-                    button4.Image = Properties.Resources.pause_30px;
-                }
-                else
-                {
-                    button4.Image = Properties.Resources.play_30px;
-                }
-            }
-        }
+        //bool isPlaying = true;
+        //public bool IsPlaying
+        //{
+        //    get
+        //    {
+        //        return isPlaying;
+        //    }
+        //    set
+        //    {
+        //        isPlaying = value;
+        //        if (isPlaying)
+        //        {
+        //            button4.Image = Properties.Resources.pause_30px;
+        //        }
+        //        else
+        //        {
+        //            button4.Image = Properties.Resources.play_30px;
+        //        }
+        //    }
+        //}
 
         private void button3_Click(object sender, EventArgs e)
         {

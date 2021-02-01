@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoOptions));
             this.dialog = new System.Windows.Forms.OpenFileDialog();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -39,10 +40,15 @@
             this.playerList = new System.Windows.Forms.ComboBox();
             this.mediaPlayerButtons3 = new QueServer.MediaPlayerButtons();
             this.selectVideosBtn = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.mediaList = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.speechVol)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.normalVol)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mediaList)).BeginInit();
             this.SuspendLayout();
             // 
             // dialog
@@ -55,10 +61,9 @@
             this.groupBox3.Controls.Add(this.panel1);
             this.groupBox3.Controls.Add(this.playerList);
             this.groupBox3.Controls.Add(this.mediaPlayerButtons3);
-            this.groupBox3.Controls.Add(this.selectVideosBtn);
-            this.groupBox3.Location = new System.Drawing.Point(12, 11);
+            this.groupBox3.Location = new System.Drawing.Point(12, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(212, 258);
+            this.groupBox3.Size = new System.Drawing.Size(212, 220);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Media Controls";
@@ -132,7 +137,6 @@
             // mediaPlayerButtons3
             // 
             this.mediaPlayerButtons3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mediaPlayerButtons3.IsPlaying = true;
             this.mediaPlayerButtons3.Location = new System.Drawing.Point(7, 170);
             this.mediaPlayerButtons3.Name = "mediaPlayerButtons3";
             this.mediaPlayerButtons3.Size = new System.Drawing.Size(199, 44);
@@ -142,20 +146,73 @@
             // selectVideosBtn
             // 
             this.selectVideosBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.selectVideosBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.selectVideosBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.selectVideosBtn.Location = new System.Drawing.Point(7, 220);
+            this.selectVideosBtn.Location = new System.Drawing.Point(3, 189);
             this.selectVideosBtn.Name = "selectVideosBtn";
-            this.selectVideosBtn.Size = new System.Drawing.Size(199, 28);
+            this.selectVideosBtn.Size = new System.Drawing.Size(331, 28);
             this.selectVideosBtn.TabIndex = 3;
             this.selectVideosBtn.Text = "Select Media";
             this.selectVideosBtn.UseVisualStyleBackColor = false;
             this.selectVideosBtn.Click += new System.EventHandler(this.selectVideosBtn_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.mediaList);
+            this.groupBox1.Controls.Add(this.selectVideosBtn);
+            this.groupBox1.Location = new System.Drawing.Point(230, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(337, 220);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Play List";
+            // 
+            // mediaList
+            // 
+            this.mediaList.AllowUserToAddRows = false;
+            this.mediaList.AllowUserToDeleteRows = false;
+            this.mediaList.AllowUserToResizeColumns = false;
+            this.mediaList.AllowUserToResizeRows = false;
+            this.mediaList.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.mediaList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mediaList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mediaList.ColumnHeadersVisible = false;
+            this.mediaList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.mediaList.DefaultCellStyle = dataGridViewCellStyle1;
+            this.mediaList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mediaList.Location = new System.Drawing.Point(3, 16);
+            this.mediaList.MultiSelect = false;
+            this.mediaList.Name = "mediaList";
+            this.mediaList.ReadOnly = true;
+            this.mediaList.RowHeadersVisible = false;
+            this.mediaList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.mediaList.Size = new System.Drawing.Size(331, 173);
+            this.mediaList.TabIndex = 0;
+            this.mediaList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.mediaList_CellMouseDoubleClick);
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.HeaderText = "Item";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
             // VideoOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(236, 281);
+            this.ClientSize = new System.Drawing.Size(578, 238);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -171,6 +228,8 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.speechVol)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.normalVol)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mediaList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -186,5 +245,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView mediaList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
