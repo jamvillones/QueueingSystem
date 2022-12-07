@@ -18,6 +18,32 @@ namespace Queueing
             InitializeComponent();
         }
 
+        //protected override void WndProc(ref Message m)
+        //{
+        //    base.WndProc(ref m);
+
+        //    // WM_SYSCOMMAND
+        //    if (m.Msg == 0x0112)
+        //    {
+        //        if (m.WParam == new IntPtr(0xF030) // Maximize event - SC_MAXIMIZE from Winuser.h
+        //            ) // Restore event - SC_RESTORE from Winuser.h
+        //        {
+        //            OnMaximized();
+        //        }
+        //        if (m.WParam == new IntPtr(0xF120))
+        //            OnNormal();
+        //    }
+        //}
+
+        //void OnMaximized()
+        //{
+        //    this.FormBorderStyle = FormBorderStyle.None;
+        //}
+        //void OnNormal()
+        //{
+        //    this.FormBorderStyle = FormBorderStyle.Sizable;
+        //}
+
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -114,6 +140,16 @@ namespace Queueing
             if (e.KeyCode == Keys.F5)
             {
                 RefreshControls();
+            }
+            if (e.KeyCode == Keys.Escape)
+            {
+                WindowState = FormWindowState.Normal;
+                FormBorderStyle = FormBorderStyle.Sizable;
+            }
+            if (e.KeyCode == Keys.Enter && e.Shift)
+            {
+                FormBorderStyle = FormBorderStyle.None;
+                WindowState = FormWindowState.Maximized;
             }
         }
         void RefreshControls()

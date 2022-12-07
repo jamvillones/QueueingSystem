@@ -72,7 +72,7 @@ namespace QueServer
         {
             using (var q = new QueeuingEntities())
             {
-                foreach (var i in q.Counters.OrderBy(x=>x.CounterNumber))
+                foreach (var i in q.Counters.OrderBy(x => x.CounterNumber))
                 {
                     ///creates the token
                     var token = new CounterToken();
@@ -260,6 +260,19 @@ namespace QueServer
             if (e.Control && e.Shift && e.KeyCode == Keys.V)
             {
                 OpenVideoOption();
+            }
+            if (e.KeyCode == Keys.Escape)
+            {
+                FormBorderStyle = FormBorderStyle.Sizable;
+                WindowState = FormWindowState.Normal;
+                settingBtn.Visible = true;
+            }
+            if (e.KeyCode == Keys.F1)
+            {
+                FormBorderStyle = FormBorderStyle.None;
+                WindowState = FormWindowState.Maximized;
+                settingBtn.Visible = false;
+                settingsSubPanel.Visible = false;
             }
         }
 

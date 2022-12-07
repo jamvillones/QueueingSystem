@@ -45,7 +45,6 @@
             this.connectionWorker = new System.ComponentModel.BackgroundWorker();
             this.topPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.exitBtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -94,7 +93,7 @@
             this.settingsSubPanel.Controls.Add(this.clearBtn);
             this.settingsSubPanel.Controls.Add(this.button10);
             this.settingsSubPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.settingsSubPanel.Location = new System.Drawing.Point(0, 325);
+            this.settingsSubPanel.Location = new System.Drawing.Point(0, 310);
             this.settingsSubPanel.Name = "settingsSubPanel";
             this.settingsSubPanel.Size = new System.Drawing.Size(163, 100);
             this.settingsSubPanel.TabIndex = 9;
@@ -110,6 +109,7 @@
             this.videoOptBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.videoOptBtn.Location = new System.Drawing.Point(0, 75);
             this.videoOptBtn.Name = "videoOptBtn";
+            this.videoOptBtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.videoOptBtn.Size = new System.Drawing.Size(163, 25);
             this.videoOptBtn.TabIndex = 16;
             this.videoOptBtn.Text = "VIDEO OPTIONS";
@@ -128,6 +128,7 @@
             this.refreshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.refreshBtn.Location = new System.Drawing.Point(0, 50);
             this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.refreshBtn.Size = new System.Drawing.Size(163, 25);
             this.refreshBtn.TabIndex = 14;
             this.refreshBtn.Text = " REFRESH";
@@ -146,6 +147,7 @@
             this.clearBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.clearBtn.Location = new System.Drawing.Point(0, 25);
             this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.clearBtn.Size = new System.Drawing.Size(163, 25);
             this.clearBtn.TabIndex = 15;
             this.clearBtn.Text = " RESET NUMBERS";
@@ -165,6 +167,7 @@
             this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button10.Location = new System.Drawing.Point(0, 0);
             this.button10.Name = "button10";
+            this.button10.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.button10.Size = new System.Drawing.Size(163, 25);
             this.button10.TabIndex = 12;
             this.button10.Text = " TRANSACTIONS";
@@ -177,17 +180,21 @@
             // 
             this.settingBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.settingBtn.FlatAppearance.BorderSize = 0;
+            this.settingBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.settingBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
             this.settingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settingBtn.ForeColor = System.Drawing.Color.White;
+            this.settingBtn.Image = ((System.Drawing.Image)(resources.GetObject("settingBtn.Image")));
             this.settingBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.settingBtn.Location = new System.Drawing.Point(0, 425);
+            this.settingBtn.Location = new System.Drawing.Point(0, 410);
             this.settingBtn.Name = "settingBtn";
-            this.settingBtn.Size = new System.Drawing.Size(163, 25);
+            this.settingBtn.Size = new System.Drawing.Size(163, 40);
             this.settingBtn.TabIndex = 8;
-            this.settingBtn.Text = "SETTINGS";
+            this.settingBtn.Text = "  SETTINGS";
             this.settingBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.settingBtn.UseVisualStyleBackColor = true;
+            this.settingBtn.Visible = false;
             this.settingBtn.Click += new System.EventHandler(this.settingBtn_Click);
             // 
             // panel6
@@ -227,7 +234,7 @@
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(163, 52);
             this.Title.TabIndex = 5;
-            this.Title.Text = "MUNICIPALITY OF KALIBO";
+            this.Title.Text = "MUNICIPALITY OF IBAJAY";
             this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
@@ -250,7 +257,6 @@
             this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(136)))), ((int)(((byte)(8)))));
             this.topPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.topPanel.Controls.Add(this.label2);
-            this.topPanel.Controls.Add(this.exitBtn);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(163, 0);
             this.topPanel.Name = "topPanel";
@@ -264,24 +270,10 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(651, 28);
+            this.label2.Size = new System.Drawing.Size(679, 28);
             this.label2.TabIndex = 2;
-            this.label2.Text = "MUNICIPALITY OF KALIBO";
+            this.label2.Text = "MUNICIPALITY OF IBAJAY";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // exitBtn
-            // 
-            this.exitBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.exitBtn.FlatAppearance.BorderSize = 0;
-            this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitBtn.Image = ((System.Drawing.Image)(resources.GetObject("exitBtn.Image")));
-            this.exitBtn.Location = new System.Drawing.Point(651, 0);
-            this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(28, 28);
-            this.exitBtn.TabIndex = 0;
-            this.exitBtn.TabStop = false;
-            this.exitBtn.UseVisualStyleBackColor = true;
-            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // panel3
             // 
@@ -399,15 +391,16 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(844, 450);
-            this.ControlBox = false;
             this.Controls.Add(this.CenterPanel);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.sidePanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Que - Display";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
@@ -440,7 +433,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button settingBtn;
