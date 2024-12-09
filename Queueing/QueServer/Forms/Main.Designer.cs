@@ -234,13 +234,11 @@
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(163, 52);
             this.Title.TabIndex = 5;
-            this.Title.Text = "MUNICIPALITY OF IBAJAY";
             this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(163, 119);
@@ -272,7 +270,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(679, 28);
             this.label2.TabIndex = 2;
-            this.label2.Text = "MUNICIPALITY OF IBAJAY";
+            this.label2.Text = "MUNICIPALITY OF KALIBO";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel3
