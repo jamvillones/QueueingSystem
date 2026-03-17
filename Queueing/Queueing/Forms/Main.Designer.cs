@@ -104,19 +104,20 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(191)))), ((int)(((byte)(108)))));
-            this.label2.Location = new System.Drawing.Point(0, 120);
+            this.label2.Location = new System.Drawing.Point(0, 159);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(163, 51);
+            this.label2.Size = new System.Drawing.Size(163, 27);
             this.label2.TabIndex = 1;
-            this.label2.Text = "MUNICIPALITY OF KALIBO";
+            this.label2.Text = "PHILHEALTH";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(163, 120);
+            this.pictureBox1.Size = new System.Drawing.Size(163, 159);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;

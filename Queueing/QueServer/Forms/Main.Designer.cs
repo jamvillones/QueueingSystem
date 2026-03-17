@@ -211,7 +211,7 @@
             // 
             this.panel5.Controls.Add(this.panel4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 171);
+            this.panel5.Location = new System.Drawing.Point(0, 217);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(163, 26);
             this.panel5.TabIndex = 6;
@@ -230,7 +230,7 @@
             this.Title.Dock = System.Windows.Forms.DockStyle.Top;
             this.Title.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(191)))), ((int)(((byte)(108)))));
-            this.Title.Location = new System.Drawing.Point(0, 119);
+            this.Title.Location = new System.Drawing.Point(0, 165);
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(163, 52);
             this.Title.TabIndex = 5;
@@ -239,9 +239,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(163, 119);
+            this.pictureBox1.Size = new System.Drawing.Size(163, 165);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -264,13 +265,13 @@
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(679, 28);
             this.label2.TabIndex = 2;
-            this.label2.Text = "MUNICIPALITY OF KALIBO";
+            this.label2.Text = "MUNICIPALITY OF JAMINDAN";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel3
